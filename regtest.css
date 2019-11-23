@@ -1,0 +1,37 @@
+body
+{
+    overflow-x: hidden;
+}
+
+#sidebar
+{
+    min-height: 100vh;
+    min-width: 20%;
+    background-color: gray;
+}
+
+#content
+{
+    min-width: 80%;
+    background-color: lightgray;
+    text-align: center;
+}
+
+#registerForm
+{
+    margin-top: 100px;
+    display: none;
+}
+
+#logoutButton
+{
+    display: none;
+}
+
+#usernameLabel
+{
+    display: none;
+    color: white;
+    font-size: 20px;
+    margin: 0;
+}
