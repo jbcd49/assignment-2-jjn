@@ -1,4 +1,5 @@
 let registeredUsers = [];
+let activeUser = null;
 
 window.onload = () =>
 {
@@ -7,17 +8,20 @@ window.onload = () =>
         registeredUsers = JSON.parse(localStorage.getItem("registeredUsers"));
     }
 
-    //TODO - add logic for persisting user login across pages here for cart / login in state for ui etc.
+    if(localStorage.getItem("activeUser") !== null)
+    {
+        activeUser = JSON.parse(localStorage.getItem("activeUser"));
+        disableLoginFields();
+        enableLogoutFields();
+        setActiveUser();
+        enableActiveUserFields();
+    }
 
     attachListeners();
 }
 
 function attachListeners()
-{
-    document.getElementById("registerForm").addEventListener("submit", () => {
-        registerUser();
-    });
-    
+{    
     document.getElementById("loginForm").addEventListener("submit", () => {
         loginUser(document.getElementById("loginEmail").value, document.getElementById("loginPassword").value);
     });
@@ -26,9 +30,19 @@ function attachListeners()
         logoutUser();
     });
 
-    document.getElementById("signUpButton").addEventListener("click", () => {
-        enableRegisterForm();
-    });
+    if(document.getElementById("signUpButton") !== null)
+    {
+        document.getElementById("signUpButton").addEventListener("click", () => {
+            window.location.href = "./registration.html";
+        });
+    }
+
+    if(document.getElementById("registerForm") !== null)
+    {
+        document.getElementById("registerForm").addEventListener("submit", () => {
+            registerUser();
+        });
+    }
 }
 
 function registerUser()
@@ -36,7 +50,7 @@ function registerUser()
     if(isUserRegistered())
     {
         alert("USER ALREADY EXISTS");
-       return; 
+        return; 
     }    
     if(!isUserInfoValid())
     {
@@ -46,8 +60,9 @@ function registerUser()
 
     createUser();
     
-    disableRegisterForm();
     loginUser(document.getElementById("registerEmail").value, document.getElementById("registerPassword1").value);
+    alert("USER CREATED");
+    window.location.href = "./index.html";
 }
 
 function isUserInfoValid()
@@ -101,6 +116,16 @@ function saveUsersToLocalStorage()
     localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
 }
 
+function saveActiveUserToLocalStorage()
+{
+    localStorage.setItem("activeUser", JSON.stringify(activeUser));
+}
+
+function setActiveUser()
+{
+    document.getElementById("usernameLabel").innerHTML = activeUser.email;
+}
+
 function loginUser(email, password)
 {
     for(user of registeredUsers)
@@ -111,11 +136,11 @@ function loginUser(email, password)
             {
                 disableLoginFields();
                 enableLogoutFields();
-                //TODO - set the user as the active user
-                    //TEMP -->
-                    document.getElementById("usernameLabel").innerHTML = user.email;
+
+                    activeUser = user;
+                    saveActiveUserToLocalStorage();
+                    setActiveUser();
                     enableActiveUserFields();
-                    //TEMP
 
                 //TODO - move any items in the cart to the users cart -- may need to merge items in the cart
                 return;
@@ -135,6 +160,8 @@ function logoutUser()
     enableLoginFields();
     disableLogoutFields();
     disableActiveUserFields();
+    activeUser = null;
+    localStorage.removeItem("activeUser");
 }
 
 function disableLoginFields()
@@ -142,7 +169,10 @@ function disableLoginFields()
     document.getElementById("loginButton").style.display = "none";
     document.getElementById("loginEmail").style.display = "none";
     document.getElementById("loginPassword").style.display = "none";
-    document.getElementById("signUpButton").style.display = "none";
+    if(document.getElementById("signUpButton") !== null)
+    {
+        document.getElementById("signUpButton").style.display = "none";
+    }
 }
 
 function enableLoginFields()
@@ -150,7 +180,10 @@ function enableLoginFields()
     document.getElementById("loginButton").style.display = "inline";
     document.getElementById("loginEmail").style.display = "inline";
     document.getElementById("loginPassword").style.display = "inline";
-    document.getElementById("signUpButton").style.display = "inline";
+    if(document.getElementById("signUpButton") !== null)
+    {
+        document.getElementById("signUpButton").style.display = "inline";
+    }
 }
 
 function disableLogoutFields()
@@ -161,17 +194,6 @@ function disableLogoutFields()
 function enableLogoutFields()
 {
     document.getElementById("logoutButton").style.display = "inline";
-}
-
-function disableRegisterForm()
-{
-    document.getElementById("registerForm").style.display = "none";
-}
-
-function enableRegisterForm()
-{
-    document.getElementById("signUpButton").style.display = "none";
-    document.getElementById("registerForm").style.display = "block";
 }
 
 function enableActiveUserFields()
