@@ -46,7 +46,32 @@ main
     text-align: center;
     border-radius: 5px;
     box-shadow: black 3px 3px 3px;
-    height: 300px;
+}
+
+.regItem
+{
+    margin: 10px;
+}
+
+.regInput
+{
+    width: 300px;
+}
+
+.regItem input
+{
+    width: 200px;
+}
+
+.regButton
+{
+    width: 130px;
+}
+
+#registerForm
+{
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 #logoutButton
