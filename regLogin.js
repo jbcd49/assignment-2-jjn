@@ -17,61 +17,73 @@ window.onload = () =>
         setActiveUser();
         enableActiveUserFields();
     }
-
-    if(localStorage.getItem("inventory") !== null)
+    
+    //only render if on category page
+    if(document.getElementById("itemList") !== null)
     {
-        inventory = JSON.parse(localStorage.getItem("inventory"));
+        //if inventory is empty pull from json
+        if(inventory.length === 0)
+        {
+            populateInventory();
+        }
+        renderItemList();
     }
-    else
-    {
-        generateItemsForInventory();
-    }
-
-    renderItemList();
 
     attachListeners();
 }
 
-function generateItemsForInventory()
+function populateInventory()
 {
-    //TODO - check for items in carts
-
-    const INVENTORY_SIZE = 25; //temp size limit
-    for(let i = 0; i < INVENTORY_SIZE; i++)
+    for(let i = 0; i < inventory_JSON.length; i++)
     {
-        //TODO - loop if in list to avoid duplicate listings
-
-        //temp - create the items and push to the inventory
-        inventory.push(i);
+        inventory.push(inventory_JSON[i]);
+        //temp
+            console.log(inventory_JSON[i]);
+        //temp
     }
-    saveInventoryToLocalStorage();
 }
 
 function renderItemList()
 {
+    //temp
+        let tempTotal = 0;
+    //temp
+
     let temp = document.getElementById("itemList");
     for(let i = 0; i < inventory.length; i++)
     {
         let tempItem = document.createElement("div");
         tempItem.className = "item";
+        tempItem.id = inventory[i].productID;
 
         let tempImage = document.createElement("img");
-        //temp - img will be pulled from inventory item field
-        tempImage.src = "./resources/testImage.jpg";
+        tempImage.src = inventory[i].productImage;
         tempImage.className = "itemImage";
+
+        let tempName = document.createElement("div");
+        tempName.innerHTML = inventory[i].productName;
+        tempName.className = "itemName";
 
         let tempPrice = document.createElement("div");
         tempPrice.className = "itemPrice";
+        tempPrice.innerHTML = "$" + inventory[i].productPrice;
+        //temp
+            tempTotal += parseFloat(inventory[i].productPrice);
+        //temp
 
         let tempCartForm = document.createElement("div");
         tempCartForm.className = "itemCartForm";
 
         tempItem.appendChild(tempImage);
+        tempItem.appendChild(tempName);
         tempItem.appendChild(tempPrice);
         tempItem.appendChild(tempCartForm);
 
         temp.appendChild(tempItem);
     }
+    //temp
+        console.log(tempTotal);
+    //temp
 }
 
 function attachListeners()
@@ -173,11 +185,6 @@ function saveUsersToLocalStorage()
 function saveActiveUserToLocalStorage()
 {
     localStorage.setItem("activeUser", JSON.stringify(activeUser));
-}
-
-function saveInventoryToLocalStorage()
-{
-    localStorage.setItem("inventory", JSON.stringify(inventory));
 }
 
 function setActiveUser()

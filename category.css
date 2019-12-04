@@ -60,11 +60,18 @@ main
     display: grid;
 
     grid-template-areas: 
-        "picture picture"
-        "price addToCart";
+        "picture picture picture"
+        "name name price"
+        "cartForm cartForm cartForm";
 
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 4fr 1fr 1fr;
+}
+
+.itemName
+{
+    grid-area: name;
+    background-color: lightpink;
 }
 
 .itemImage
@@ -81,7 +88,7 @@ main
 .itemPrice
 {
     grid-area: price;
-    border-radius: 0px 0px 0px 5px;
+    /* border-radius: 0px 0px 0px 5px; */
 
     /* temp - to show div boundry */
     background-color: lightskyblue;
@@ -89,8 +96,8 @@ main
 
 .itemCartForm
 {
-    grid-area: addToCart;
-    border-radius: 0px 0px 5px 0px;
+    grid-area: cartForm;
+    border-radius: 0px 0px 5px 5px;
 
     /* temp - to show div boundry */
     background-color: lightgreen;
