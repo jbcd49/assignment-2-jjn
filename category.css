@@ -1,7 +1,7 @@
 body
 {
     background-color: black;
-    min-width: 900px;
+    min-width: 950px;
 }
 
 .pageContainer
@@ -40,8 +40,10 @@ main
 .itemContainer
 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fill, 300px);
     grid-template-rows: auto;
+    justify-content: center;
 
     row-gap: 15px;
     column-gap: 15px;

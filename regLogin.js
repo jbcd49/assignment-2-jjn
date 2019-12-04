@@ -25,6 +25,17 @@ window.onload = () =>
         if(inventory.length === 0)
         {
             populateInventory();
+            //temp
+                populateInventory();
+                populateInventory();
+                populateInventory();
+                populateInventory();
+                populateInventory();
+                populateInventory();
+                populateInventory();
+                populateInventory();
+                populateInventory();
+            //temp
         }
         renderItemList();
     }
