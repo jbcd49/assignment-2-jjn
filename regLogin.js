@@ -1,5 +1,6 @@
 let registeredUsers = [];
 let activeUser = null;
+let inventory = [];
 
 window.onload = () =>
 {
@@ -17,7 +18,60 @@ window.onload = () =>
         enableActiveUserFields();
     }
 
+    if(localStorage.getItem("inventory") !== null)
+    {
+        inventory = JSON.parse(localStorage.getItem("inventory"));
+    }
+    else
+    {
+        generateItemsForInventory();
+    }
+
+    renderItemList();
+
     attachListeners();
+}
+
+function generateItemsForInventory()
+{
+    //TODO - check for items in carts
+
+    const INVENTORY_SIZE = 25; //temp size limit
+    for(let i = 0; i < INVENTORY_SIZE; i++)
+    {
+        //TODO - loop if in list to avoid duplicate listings
+
+        //temp - create the items and push to the inventory
+        inventory.push(i);
+    }
+    saveInventoryToLocalStorage();
+}
+
+function renderItemList()
+{
+    let temp = document.getElementById("itemList");
+    for(let i = 0; i < inventory.length; i++)
+    {
+        let tempItem = document.createElement("div");
+        tempItem.className = "item";
+
+        let tempImage = document.createElement("img");
+        //temp - img will be pulled from inventory item field
+        tempImage.src = "./resources/testImage.jpg";
+        tempImage.className = "itemImage";
+
+        let tempPrice = document.createElement("div");
+        tempPrice.className = "itemPrice";
+
+        let tempCartForm = document.createElement("div");
+        tempCartForm.className = "itemCartForm";
+
+        tempItem.appendChild(tempImage);
+        tempItem.appendChild(tempPrice);
+        tempItem.appendChild(tempCartForm);
+
+        temp.appendChild(tempItem);
+    }
 }
 
 function attachListeners()
@@ -119,6 +173,11 @@ function saveUsersToLocalStorage()
 function saveActiveUserToLocalStorage()
 {
     localStorage.setItem("activeUser", JSON.stringify(activeUser));
+}
+
+function saveInventoryToLocalStorage()
+{
+    localStorage.setItem("inventory", JSON.stringify(inventory));
 }
 
 function setActiveUser()
