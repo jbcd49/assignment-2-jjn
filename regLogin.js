@@ -1,5 +1,6 @@
 let registeredUsers = [];
 let activeUser = null;
+let inventory = [];
 
 window.onload = () =>
 {
@@ -16,8 +17,84 @@ window.onload = () =>
         setActiveUser();
         enableActiveUserFields();
     }
+    
+    //only render if on category page
+    if(document.getElementById("itemList") !== null)
+    {
+        //if inventory is empty pull from json
+        if(inventory.length === 0)
+        {
+            populateInventory();
+            //temp
+                populateInventory();
+                populateInventory();
+                populateInventory();
+                populateInventory();
+                populateInventory();
+                populateInventory();
+                populateInventory();
+                populateInventory();
+                populateInventory();
+            //temp
+        }
+        renderItemList();
+    }
 
     attachListeners();
+}
+
+function populateInventory()
+{
+    for(let i = 0; i < inventory_JSON.length; i++)
+    {
+        inventory.push(inventory_JSON[i]);
+        //temp
+            console.log(inventory_JSON[i]);
+        //temp
+    }
+}
+
+function renderItemList()
+{
+    //temp
+        let tempTotal = 0;
+    //temp
+
+    let temp = document.getElementById("itemList");
+    for(let i = 0; i < inventory.length; i++)
+    {
+        let tempItem = document.createElement("div");
+        tempItem.className = "item";
+        tempItem.id = inventory[i].productID;
+
+        let tempImage = document.createElement("img");
+        tempImage.src = inventory[i].productImage;
+        tempImage.className = "itemImage";
+
+        let tempName = document.createElement("div");
+        tempName.innerHTML = inventory[i].productName;
+        tempName.className = "itemName";
+
+        let tempPrice = document.createElement("div");
+        tempPrice.className = "itemPrice";
+        tempPrice.innerHTML = "$" + inventory[i].productPrice;
+        //temp
+            tempTotal += parseFloat(inventory[i].productPrice);
+        //temp
+
+        let tempCartForm = document.createElement("div");
+        tempCartForm.className = "itemCartForm";
+
+        tempItem.appendChild(tempImage);
+        tempItem.appendChild(tempName);
+        tempItem.appendChild(tempPrice);
+        tempItem.appendChild(tempCartForm);
+
+        temp.appendChild(tempItem);
+    }
+    //temp
+        console.log(tempTotal);
+    //temp
 }
 
 function attachListeners()

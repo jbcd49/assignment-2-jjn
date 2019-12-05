@@ -1,7 +1,7 @@
 body
 {
     background-color: black;
-    min-width: 900px;
+    min-width: 950px;
 }
 
 .pageContainer
@@ -40,8 +40,10 @@ main
 .itemContainer
 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fill, 300px);
     grid-template-rows: auto;
+    justify-content: center;
 
     row-gap: 15px;
     column-gap: 15px;
@@ -49,11 +51,58 @@ main
 
 .item
 {
-    background-color: lightgray;
+    background-color: white;
     text-align: center;
     border-radius: 5px;
     box-shadow: black 3px 3px 3px;
     height: 300px;
+
+    min-width: 300px;
+
+    display: grid;
+
+    grid-template-areas: 
+        "picture picture picture"
+        "name name price"
+        "cartForm cartForm cartForm";
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 4fr 1fr 1fr;
+}
+
+.itemName
+{
+    grid-area: name;
+    background-color: lightpink;
+}
+
+.itemImage
+{
+    grid-area: picture;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    border-radius: 5px 5px 0px 0px;
+
+}
+
+.itemPrice
+{
+    grid-area: price;
+    /* border-radius: 0px 0px 0px 5px; */
+
+    /* temp - to show div boundry */
+    background-color: lightskyblue;
+}
+
+.itemCartForm
+{
+    grid-area: cartForm;
+    border-radius: 0px 0px 5px 5px;
+
+    /* temp - to show div boundry */
+    background-color: lightgreen;
 }
 
 #logoutButton
