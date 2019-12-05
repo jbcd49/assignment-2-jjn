@@ -40,7 +40,6 @@ main
 .itemContainer
 {
     display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
     grid-template-columns: repeat(auto-fill, 300px);
     grid-template-rows: auto;
     justify-content: center;
@@ -51,6 +50,8 @@ main
 
 .item
 {
+    /* TODO - add grid for brand */
+
     background-color: white;
     text-align: center;
     border-radius: 5px;
@@ -90,7 +91,6 @@ main
 .itemPrice
 {
     grid-area: price;
-    /* border-radius: 0px 0px 0px 5px; */
 
     /* temp - to show div boundry */
     background-color: lightskyblue;

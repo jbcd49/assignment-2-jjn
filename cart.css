@@ -1,0 +1,43 @@
+body
+{
+    background-color: black;
+    min-width: 950px;
+}
+
+.pageContainer
+{
+    display: grid;
+
+    grid-template-areas: 
+        "header header"
+        "main main";
+
+    grid-template-columns: fill;
+    grid-template-rows: auto 1fr;
+
+    height: 100vh;
+}
+
+header
+{
+    grid-area: header;
+}
+
+main
+{
+    grid-area: main;
+    background-color: gray;
+}
+
+#logoutButton
+{
+    display: none;
+}
+
+#usernameLabel
+{
+    display: none;
+    color: white;
+    font-size: 20px;
+    margin: 0;
+}
