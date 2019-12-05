@@ -15,5 +15,13 @@ let inventory_JSON =
         productPrice: "999.99",
         productCategory: "computers",
         productImage: "./resources/macbookAir_apple.jpg"
+    },
+    {
+        productID: "3",
+        productName: "Bose Noise Cancelling Headphones",
+        productBrand: "Apple",
+        productPrice: "399.00",
+        productCategory: "headphones",
+        productImage: "./resources/BoseNCheadphones.jpg"
     }
 ];
