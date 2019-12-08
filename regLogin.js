@@ -86,7 +86,7 @@ function filterItemList()
             {
                 inventory = inventory.filter(e => 
                     {
-                        return e.productPrice <= "50";
+                        return e.productPrice <= 50;
                     });
                 break;
             }
@@ -94,11 +94,11 @@ function filterItemList()
             {
                 inventory = inventory.filter(e => 
                     {
-                        return e.productPrice >= "50";
+                        return e.productPrice >= 50;
                     });
                 inventory = inventory.filter(e => 
                     {
-                        return e.productPrice <= "100";
+                        return e.productPrice <= 100;
                     })
                 break;
             }
@@ -106,11 +106,11 @@ function filterItemList()
             {
                 inventory = inventory.filter(e => 
                     {
-                        return e.productPrice >= "100";
+                        return e.productPrice >= 100;
                     });
                 inventory = inventory.filter(e => 
                     {
-                        return e.productPrice <= "200";
+                        return e.productPrice <= 200;
                     })
                 break;
             }
@@ -118,7 +118,7 @@ function filterItemList()
             {
                 inventory = inventory.filter(e => 
                     {
-                        return e.productPrice >= "200";
+                        return e.productPrice >= 200;
                     });
                 break;
             }
