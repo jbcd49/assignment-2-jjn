@@ -18,8 +18,8 @@ let inventory_JSON =
     },
     {
         productID: "3",
-        productName: "Bose Noise Cancelling Headphones",
-        productBrand: "Apple",
+        productName: "Noise Cancelling Headphones",
+        productBrand: "Bose",
         productPrice: "399.00",
         productCategory: "headphones",
         productImage: "./resources/BoseNCheadphones.jpg"
@@ -108,8 +108,160 @@ let inventory_JSON =
         productID: "14",
         productName: "2-Pack Ultra Thin HDMI Cable - 6 feet",
         productBrand: "Cable Matters",
-        productPrice: "12.99",
+        productPrice: "13.99",
         productCategory: "cables",
         productImage: "./resources/UltraThinHDMI_2pack.jpg"
+    },
+    {
+        productID: "15",
+        productName: "DisplayPort to DVI Cable",
+        productBrand: "Cable Matters",
+        productPrice: "11.99",
+        productCategory: "cables",
+        productImage: "./resources/DisplayPort_toDVI.jpg"
+    },
+    {
+        productID: "16",
+        productName: " Digital Optical Audio Toslink Sound Bar TV Cable",
+        productBrand: "AmazonBasics",
+        productPrice: "5.56",
+        productCategory: "cables",
+        productImage: "./resources/digitalopticalaudio.jpg"
+    },
+    {
+        productID: "17",
+        productName: "Coaxial TV Antenna Cable - 4 feet",
+        productBrand: "AmazonBasics",
+        productPrice: "6.59",
+        productCategory: "cables",
+        productImage: "./resources/coaxialTVantenna.jpg"
+    },
+    {
+        productID: "18",
+        productName: "Apple Power Adapter Extension Cable",
+        productBrand: "Apple",
+        productPrice: "19.00",
+        productCategory: "cables",
+        productImage: "./resources/ApplePowerAdapterExtension.jpg"
+    },
+    {
+        productID: "19",
+        productName: "Chromebook 2-in-1 Convertible Laptop",
+        productBrand: "Lenovo",
+        productPrice: "299.99",
+        productCategory: "computers",
+        productImage: "./resources/chromebook_lenovo.jpg"
+    },
+    {
+        productID: "20",
+        productName: "Slim Desktop Computer",
+        productBrand: "HP",
+        productPrice: "299.99",
+        productCategory: "computers",
+        productImage: "./resources/HPdesktop.jpg"
+    },
+    {
+        productID: "21",
+        productName: "Aspire 5 Slim Laptop",
+        productBrand: "Acer",
+        productPrice: "338.90",
+        productCategory: "computers",
+        productImage: "./resources/AcerAspire.jpg"
+    },
+    {
+        productID: "22",
+        productName: "15.6 inch Business Laptop",
+        productBrand: "HP",
+        productPrice: "497.53",
+        productCategory: "computers",
+        productImage: "./resources/HPbusinesslaptop.jpg"
+    },
+    {
+        productID: "23",
+        productName: "Blaze II Gaming Computer",
+        productBrand: "SkyTech",
+        productPrice: "749.99 ",
+        productCategory: "computers",
+        productImage: "./resources/skytechblazeII.jpg"
+    },
+    {
+        productID: "24",
+        productName: "ThinkCentre High Performance M91P Desktop Computer",
+        productBrand: "Lenovo",
+        productPrice: "132.89",
+        productCategory: "computers",
+        productImage: "./resources/LenovoThinkCentre.jpg"
+    },
+    {
+        productID: "25",
+        productName: "Inspiron 3470 Desktop",
+        productBrand: "Dell",
+        productPrice: "679.99",
+        productCategory: "computers",
+        productImage: "./resources/Inspiron3470.jpg"
+    },
+    {
+        productID: "26",
+        productName: "Pavilion Desktop Computer",
+        productBrand: "HP",
+        productPrice: "629.99",
+        productCategory: "computers",
+        productImage: "./resources/PavillionDesktop.jpg"
+    },
+    {
+        productID: "27",
+        productName: "All-in-One Computer",
+        productBrand: "HP",
+        productPrice: "429.99",
+        productCategory: "computers",
+        productImage: "./resources/HP_allinone.jpg"
+    },
+    {
+        productID: "28",
+        productName: "iMac",
+        productBrand: "Apple",
+        productPrice: "455.00",
+        productCategory: "computers",
+        productImage: "./resources/iMac_apple.jpg"
+    },
+    {
+        productID: "29",
+        productName: "Ideacentre All-in-One",
+        productBrand: "Lenovo",
+        productPrice: "599.00",
+        productCategory: "computers",
+        productImage: "./resources/Lenovo_allinone.jpg"
+    },
+    {
+        productID: "30",
+        productName: "Oracle Gaming Computer",
+        productBrand: "SkyTech",
+        productPrice: "1,535.98",
+        productCategory: "computers",
+        productImage: "./resources/OracleGamingComputer.jpg"
+    },
+    {
+        productID: "31",
+        productName: "OptiPlex 790 Desktop Computer",
+        productBrand: "Dell",
+        productPrice: "214.97",
+        productCategory: "computers",
+        productImage: "./resources/DellOptiplex.jpg"
+    },
+    {
+        productID: "32",
+        productName: "Inspiron 3000 HD Touchscreen All-in-One",
+        productBrand: "Dell",
+        productPrice: "649.99",
+        productCategory: "computers",
+        productImage: "./resources/DellInspiron3000.jpg"
+    },
+    {
+        productID: "33",
+        productName: "XE500C13 Chromebook",
+        productBrand: "Samsung",
+        productPrice: "199.99",
+        productCategory: "computers",
+        productImage: "./resources/samsungchromebook.jpg"
     },
 ];
