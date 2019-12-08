@@ -264,4 +264,124 @@ let inventory_JSON =
         productCategory: "computers",
         productImage: "./resources/samsungchromebook.jpg"
     },
+    {
+        productID: "34",
+        productName: "QuietComfort 35",
+        productBrand: "Bose",
+        productPrice: "349.99",
+        productCategory: "headphones",
+        productImage: "./resources/BoseQCheadphones.jpg"
+    },
+    {
+        productID: "35",
+        productName: "WH1000XM3 Noise Cancelling Headphones",
+        productBrand: "Sony",
+        productPrice: "349.99",
+        productCategory: "headphones",
+        productImage: "./resources/SonyNCheadphones.jpg"
+    },
+    {
+        productID: "36",
+        productName: "MDRZX110/BLK ZX Series Stereo Headphones",
+        productBrand: "Sony",
+        productPrice: "14.89",
+        productCategory: "headphones",
+        productImage: "./resources/zxseriesheadphones.jpg"
+    },
+    {
+        productID: "37",
+        productName: "EarPods with Lightning Connector",
+        productBrand: "Apple",
+        productPrice: "29.99",
+        productCategory: "headphones",
+        productImage: "./resources/appleearpods.jpg"
+    },
+    {
+        productID: "38",
+        productName: "Active InEar Headphones",
+        productBrand: "Samsung",
+        productPrice: "29.99",
+        productCategory: "headphones",
+        productImage: "./resources/InEarHeadphones.jpg"
+    },
+    {
+        productID: "39",
+        productName: "SoundSport Wireless Headphones",
+        productBrand: "Bose",
+        productPrice: "149.00",
+        productCategory: "headphones",
+        productImage: "./resources/BoseSoundSport.jpg"
+    },
+    {
+        productID: "40",
+        productName: "Ink'd Plus In-Ear Earbud",
+        productBrand: "Skullcandy",
+        productPrice: "17.99",
+        productCategory: "headphones",
+        productImage: "./resources/SkullcandyEarbuds.jpg"
+    },
+    {
+        productID: "41",
+        productName: "Wireless Gaming Headset G930",
+        productBrand: "Logitech",
+        productPrice: "168.99",
+        productCategory: "headphones",
+        productImage: "./resources/Logitechg930.jpg"
+    },
+    {
+        productID: "42",
+        productName: "Cat Ear Kids Headphones",
+        productBrand: "DICEKOO",
+        productPrice: "39.99",
+        productCategory: "headphones",
+        productImage: "./resources/CatEarHeadphones.jpg"
+    },
+    {
+        productID: "43",
+        productName: "Ultimate Ears 500 Noise-Isolating Earphones",
+        productBrand: "Logitech",
+        productPrice: "39.99",
+        productCategory: "headphones",
+        productImage: "./resources/logitechearphones.jpg"
+    },
+    {
+        productID: "44",
+        productName: "HS70 Pro Wireless Gaming Headset",
+        productBrand: "Corsair",
+        productPrice: "99.99",
+        productCategory: "headphones",
+        productImage: "./resources/CorsairHeadset.jpg"
+    },
+    {
+        productID: "45",
+        productName: "HS45 PC Gaming Headset",
+        productBrand: "Corsair",
+        productPrice: "49.99",
+        productCategory: "headphones",
+        productImage: "./resources/hs45CorsairHeadset.jpg"
+    },
+    {
+        productID: "46",
+        productName: "G332 SE Stereo Gaming Headset",
+        productBrand: "Logitech",
+        productPrice: "59.99",
+        productCategory: "headphones",
+        productImage: "./resources/G332LogitechHeadset.jpg"
+    },
+    {
+        productID: "47",
+        productName: "Kraken Gaming Headset",
+        productBrand: "Razer",
+        productPrice: "79.99",
+        productCategory: "headphones",
+        productImage: "./resources/RazerHeadset.jpg"
+    },
+    {
+        productID: "48",
+        productName: "G633 Artemis Spectrum Gaming Headset",
+        productBrand: "Logitech",
+        productPrice: "149.99",
+        productCategory: "headphones",
+        productImage: "./resources/ArtemisSpectrumHeadset.jpg"
+    },
 ];
