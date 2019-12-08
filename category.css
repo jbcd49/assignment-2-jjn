@@ -28,6 +28,7 @@ header
     grid-area: nav;
     background-color: lightgray;
     border-right: #343a40 3px solid;
+    padding-top: 10px;
 }
 
 main
@@ -50,8 +51,6 @@ main
 
 .item
 {
-    /* TODO - add grid for brand */
-
     background-color: white;
     text-align: center;
     border-radius: 5px;
@@ -74,7 +73,9 @@ main
 .itemName
 {
     grid-area: name;
-    background-color: lightpink;
+    background-color: lightgray;
+    font-weight: bolder;
+    border-right: black solid 1px;
 }
 
 .itemImage
@@ -91,18 +92,28 @@ main
 .itemPrice
 {
     grid-area: price;
-
-    /* temp - to show div boundry */
-    background-color: lightskyblue;
+    padding: 12px;
+    font-weight: bolder;
+    background-color: lightgray;
 }
 
 .itemCartForm
 {
     grid-area: cartForm;
     border-radius: 0px 0px 5px 5px;
+    background-color: lightgray;
+    border-top: black solid 1px;
+}
 
-    /* temp - to show div boundry */
-    background-color: lightgreen;
+.itemQty
+{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.addButton
+{
+    border-radius: 5px;
 }
 
 #logoutButton
@@ -116,4 +127,32 @@ main
     color: white;
     font-size: 20px;
     margin: 0;
+}
+
+#filterHeader
+{
+    margin-left: 10px;
+}
+
+.sidebarHeader
+{
+    font-weight: bolder;
+}
+
+ul
+{
+    list-style: none;
+}
+
+#headerUL
+{
+    margin-top: 10px;
+}
+
+.filterReset
+{
+    font-weight: lighter;
+    font-size: smaller;
+    display: none;
+    cursor: pointer;
 }

@@ -1,6 +1,7 @@
 let registeredUsers = [];
 let activeUser = null;
 let inventory = [];
+let params = new URLSearchParams(location.search);
 
 window.onload = () =>
 {
@@ -26,18 +27,21 @@ window.onload = () =>
         {
             populateInventory();
             //temp
-                populateInventory();
-                populateInventory();
-                populateInventory();
-                populateInventory();
-                populateInventory();
-                populateInventory();
-                populateInventory();
-                populateInventory();
-                populateInventory();
+                // populateInventory();
+                // populateInventory();
+                // populateInventory();
+                // populateInventory();
+                // populateInventory();
+                // populateInventory();
+                // populateInventory();
+                // populateInventory();
+                // populateInventory();
             //temp
         }
+        filterItemList();
         renderItemList();
+        renderSideBar();
+        showSidebarReset();
     }
 
     attachListeners();
@@ -52,6 +56,128 @@ function populateInventory()
             console.log(inventory_JSON[i]);
         //temp
     }
+}
+
+function filterItemList()
+{
+    if(params.has('category'))
+    {
+        console.log(params.get('category'));
+        inventory = inventory.filter( e => 
+            {
+                return e.productCategory == params.get('category');
+            });
+    }
+    if(params.has('brand'))
+    {
+        console.log(params.get('brand'));
+        inventory = inventory.filter( e => 
+            {
+                return e.productBrand == params.get('brand');
+            });
+
+    }
+    if(params.has('pricelowerlimit'))
+    {
+        console.log(params.get('pricelowerlimit'));
+        switch(params.get("pricelowerlimit"))
+        {
+            case "0":
+            {
+                inventory = inventory.filter(e => 
+                    {
+                        return e.productPrice <= "50";
+                    });
+                break;
+            }
+            case "50":
+            {
+                inventory = inventory.filter(e => 
+                    {
+                        return e.productPrice >= "50";
+                    });
+                inventory = inventory.filter(e => 
+                    {
+                        return e.productPrice <= "100";
+                    })
+                break;
+            }
+            case "100":
+            {
+                inventory = inventory.filter(e => 
+                    {
+                        return e.productPrice >= "100";
+                    });
+                inventory = inventory.filter(e => 
+                    {
+                        return e.productPrice <= "200";
+                    })
+                break;
+            }
+            case "200":
+            {
+                inventory = inventory.filter(e => 
+                    {
+                        return e.productPrice >= "200";
+                    });
+                break;
+            }
+        }
+
+    }
+}
+
+function filterRedirect(filterOption, filterString)
+{
+    let urlString = "./category.html?"
+
+    //append filters here
+    if(filterOption == "category")
+    {
+        if(filterString !== "reset")
+        {
+            urlString += "category=" + filterString + "&";
+        }
+    }
+    else
+    {
+        if(params.has("category"))
+        {
+            urlString += "category=" + params.get("category") + "&";
+        }
+    }
+
+    if(filterOption == "brand")
+    {
+        if(filterString !== "reset")
+        {
+            urlString += "brand=" + filterString + "&";
+        }
+    }
+    else
+    {
+        if(params.has("brand"))
+        {
+            urlString += "brand=" + params.get("brand") + "&";
+        }
+    }
+
+    if(filterOption == "pricelowerlimit")
+    {
+        if(filterString !== "reset")
+        {
+            urlString += "pricelowerlimit=" + filterString + "&"
+        }
+    }
+    else
+    {
+        if(params.has("pricelowerlimit"))
+        {
+            urlString += "pricelowerlimit=" + params.get("pricelowerlimit") + "&"
+        }
+    }
+
+    window.location.href = urlString;
 }
 
 function renderItemList()
@@ -72,7 +198,7 @@ function renderItemList()
         tempImage.className = "itemImage";
 
         let tempName = document.createElement("div");
-        tempName.innerHTML = inventory[i].productName;
+        tempName.innerHTML = inventory[i].productBrand + "<br>" + inventory[i].productName;
         tempName.className = "itemName";
 
         let tempPrice = document.createElement("div");
@@ -85,6 +211,27 @@ function renderItemList()
         let tempCartForm = document.createElement("div");
         tempCartForm.className = "itemCartForm";
 
+        let tempForm = document.createElement("form");
+        tempForm.setAttribute("onsubmit", "return false");
+
+        let tempSelect = document.createElement("select");
+        tempSelect.className = "itemQty";
+        for(let i = 1; i < 4; i++)
+        {
+            let tempOption = document.createElement("option");
+            tempOption.value = i;
+            tempOption.text = i;
+            tempSelect.appendChild(tempOption);
+        }
+
+        let tempButton = document.createElement("button");
+        tempButton.innerHTML = "Add To Cart";
+        tempButton.className = "addButton";
+
+        tempForm.appendChild(tempSelect);
+        tempForm.appendChild(tempButton);
+        tempCartForm.appendChild(tempForm);
+
         tempItem.appendChild(tempImage);
         tempItem.appendChild(tempName);
         tempItem.appendChild(tempPrice);
@@ -95,6 +242,198 @@ function renderItemList()
     //temp
         console.log(tempTotal);
     //temp
+}
+
+function renderSideBar()
+{
+    //build side bar off of filtered item list
+    let categoryList = [];
+    let brandList = [];
+    for(let i = 0; i < inventory.length; i++)
+    {
+        if(!categoryList.includes(inventory[i].productCategory))
+        {
+            categoryList.push(inventory[i].productCategory);
+        }
+        if(!brandList.includes(inventory[i].productBrand))
+        {
+            brandList.push(inventory[i].productBrand);
+        }
+    }
+
+    let headerUL = document.createElement("ul");
+    headerUL.id = "headerUL";
+
+    //category
+    let categoryHeader = document.createElement("li");
+    categoryHeader.innerHTML = "CATEGORY <span id='categoryReset' class='filterReset'> - CLEAR</span>";
+    categoryHeader.className = "sidebarHeader";
+    headerUL.appendChild(categoryHeader);
+
+    let categoryUL = document.createElement("ul");
+    for(let i = 0; i < categoryList.length; i++)
+    {
+        let tempLI = document.createElement("li");
+        tempLI.innerHTML = categoryList[i];
+        tempLI.style.cursor = "pointer";
+        tempLI.onclick = () =>
+        {
+            filterRedirect("category", categoryList[i]);
+        };
+        categoryUL.appendChild(tempLI);
+    }
+
+    let categoryLI = document.createElement("li");
+    categoryLI.appendChild(categoryUL);
+    headerUL.appendChild(categoryLI);
+
+
+    //brand
+    let brandHeader = document.createElement("li") 
+    brandHeader.innerHTML = "BRAND <span id='brandReset' class='filterReset'> - CLEAR</span>";
+    brandHeader.className = "sidebarHeader";
+    headerUL.appendChild(brandHeader);
+
+    let brandUL = document.createElement("ul");
+    for(let i = 0; i < brandList.length; i++)
+    {
+        let tempLI = document.createElement("li");
+        tempLI.innerHTML = brandList[i];
+        tempLI.style.cursor = "pointer";
+        tempLI.onclick = () =>
+        {
+            filterRedirect("brand", brandList[i]);
+        };
+        brandUL.appendChild(tempLI);
+    }
+
+    let brandLI = document.createElement("li");
+    brandLI.appendChild(brandUL);
+    headerUL.appendChild(brandLI);
+
+    //price
+    let priceHeader = document.createElement("li");
+    priceHeader.innerHTML = "PRICE <span id='priceReset' class='filterReset'> - CLEAR</span>";
+    priceHeader.className = "sidebarHeader";
+    headerUL.appendChild(priceHeader);
+
+    let priceUL = document.createElement("ul");
+
+    let price0to50 = document.createElement("li");
+    price0to50.innerHTML = "Under $50";
+    price0to50.style.cursor = "pointer";
+    price0to50.onclick = () =>
+    {
+        filterRedirect("pricelowerlimit", "0");
+    };
+    price0to50.id = "price0to50";
+    priceUL.appendChild(price0to50);
+
+    let price50to100 = document.createElement("li");
+    price50to100.innerHTML = "$50 to $100";
+    price50to100.style.cursor = "pointer";
+    price50to100.onclick = () =>
+    {
+        filterRedirect("pricelowerlimit", "50");
+    };
+    price50to100.id = "price50to100";
+    priceUL.appendChild(price50to100);
+
+    let price100to200 = document.createElement("li");
+    price100to200.innerHTML = "$100 to $200";
+    price100to200.style.cursor = "pointer";
+    price100to200.onclick = () =>
+    {
+        filterRedirect("pricelowerlimit", "100");
+    };
+    price100to200.id = "price100to200";
+    priceUL.appendChild(price100to200);
+
+    let price200toMax = document.createElement("li");
+    price200toMax.innerHTML = "$200 & Up";
+    price200toMax.style.cursor = "pointer";
+    price200toMax.onclick = () =>
+    {
+        filterRedirect("pricelowerlimit", "200");
+    };
+    price200toMax.id = "price200toMax";
+    priceUL.appendChild(price200toMax);
+
+    if(params.has("pricelowerlimit"))
+    {
+        switch(params.get("pricelowerlimit"))
+        {
+            case "0":
+            {
+                priceUL.removeChild(price50to100);
+                priceUL.removeChild(price100to200);
+                priceUL.removeChild(price200toMax);
+                break;
+            }
+            case "50":
+            {   
+                priceUL.removeChild(price0to50);
+                priceUL.removeChild(price100to200);
+                priceUL.removeChild(price200toMax);
+                break;
+            }
+            case "100":
+            {
+                priceUL.removeChild(price0to50);
+                priceUL.removeChild(price50to100);
+                priceUL.removeChild(price200toMax);
+                break;
+            }
+            case "200":
+            {
+                priceUL.removeChild(price0to50);
+                priceUL.removeChild(price50to100);
+                priceUL.removeChild(price100to200);
+                break;
+            }
+        }
+    }
+
+    headerUL.appendChild(priceUL);
+
+    document.getElementById("sideBarList").appendChild(headerUL);
+}
+
+function showSidebarReset()
+{
+    if(params.has("category"))
+    {
+        if(document.getElementById("categoryReset") !== null)
+        {
+            document.getElementById("categoryReset").style.display = "inline";
+            document.getElementById("categoryReset").onclick = () =>
+            {
+                filterRedirect("category", "reset");
+            };
+        }
+    }
+    if(params.has("brand"))
+    {
+        if(document.getElementById("brandReset") !== null)
+        {
+            document.getElementById("brandReset").style.display = "inline";
+            document.getElementById("brandReset").onclick = () =>
+            {
+                filterRedirect("brand", "reset");
+            };
+        }
+    }
+    if(params.has("pricelowerlimit"))
+    {
+        if(document.getElementById("priceReset") !== null)
+        {
+            document.getElementById("priceReset").style.display = "inline";
+            document.getElementById("priceReset").onclick = () =>
+            {
+                filterRedirect("pricelowerlimit", "reset");
+            };
+        }
+    }
 }
 
 function attachListeners()
