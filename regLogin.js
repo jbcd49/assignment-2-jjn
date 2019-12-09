@@ -2,6 +2,7 @@ let registeredUsers = [];
 let activeUser = null;
 let inventory = [];
 let params = new URLSearchParams(location.search);
+let guestCart = [];
 
 window.onload = () =>
 {
@@ -18,6 +19,13 @@ window.onload = () =>
         setActiveUser();
         enableActiveUserFields();
     }
+    else
+    {
+        if(localStorage.getItem("guestCart") !== null)
+        {
+            guestCart = JSON.parse(localStorage.getItem("guestCart"));
+        }
+    }
     
     //only render if on category page
     if(document.getElementById("itemList") !== null)
@@ -26,17 +34,6 @@ window.onload = () =>
         if(inventory.length === 0)
         {
             populateInventory();
-            //temp
-                // populateInventory();
-                // populateInventory();
-                // populateInventory();
-                // populateInventory();
-                // populateInventory();
-                // populateInventory();
-                // populateInventory();
-                // populateInventory();
-                // populateInventory();
-            //temp
         }
         filterItemList();
         renderItemList();
@@ -53,7 +50,7 @@ function populateInventory()
     {
         inventory.push(inventory_JSON[i]);
         //temp
-            console.log(inventory_JSON[i]);
+            //console.log(inventory_JSON[i]);
         //temp
     }
 }
@@ -216,6 +213,7 @@ function renderItemList()
 
         let tempSelect = document.createElement("select");
         tempSelect.className = "itemQty";
+        tempSelect.id = inventory[i].productID + "Qty";
         for(let i = 1; i < 4; i++)
         {
             let tempOption = document.createElement("option");
@@ -227,6 +225,10 @@ function renderItemList()
         let tempButton = document.createElement("button");
         tempButton.innerHTML = "Add To Cart";
         tempButton.className = "addButton";
+
+        tempForm.addEventListener("submit", () => {
+            addToCart(tempItem.id, tempSelect.id);
+        });
 
         tempForm.appendChild(tempSelect);
         tempForm.appendChild(tempButton);
@@ -461,6 +463,92 @@ function attachListeners()
     }
 }
 
+function addToCart(itemID, itemQtySelect)
+{
+    let tempCartItem = 
+    {
+        tempItemID: itemID,
+        tempItemQty: parseInt(document.getElementById(itemQtySelect).value)
+    }
+    if(activeUser === null)
+    {
+        //add to guest cart
+        if(!isItemInCart(guestCart, itemID))
+        {
+            guestCart.push(tempCartItem);
+        }
+        else
+        {
+            for(let i = 0; i < guestCart.length; i++)
+            {
+                if(guestCart[i].tempItemID == itemID)
+                {
+                    guestCart[i].tempItemQty += tempCartItem.tempItemQty;
+                    break;
+                }
+            }
+        }
+        saveGuestCart();
+        //temp
+            console.log(guestCart);
+        //temp
+    }
+    else
+    {
+        //add to user cart
+        if(!isItemInCart(activeUser.cart, itemID))
+        {
+            activeUser.cart.push(tempCartItem);
+        }
+        else
+        {
+            for(let i = 0; i < activeUser.cart.length; i++)
+            {
+                if(activeUser.cart[i].tempItemID == itemID)
+                {
+                    activeUser.cart[i].tempItemQty += tempCartItem.tempItemQty;
+                    break;
+                }
+            }
+        }
+        
+        updateRegisteredUserCart(activeUser.email);
+        saveUsersToLocalStorage();
+        saveActiveUserToLocalStorage();
+        //temp
+            console.log(activeUser.cart);
+            console.log("registered users: " + registeredUsers[0].cart[0].tempItemID);
+        //temp
+    }
+    //temp
+        console.log("item: " + itemID + " qty: " + document.getElementById(itemQtySelect).value);
+    //temp
+}
+
+function updateRegisteredUserCart(email)
+{
+    for(user of registeredUsers)
+    {
+        if(user.email === email)
+        {
+            user.cart = activeUser.cart;
+            break;
+        }
+    }
+}
+
+function isItemInCart(cart, itemID)
+{
+    for(let i = 0; i < cart.length; i++)
+    {
+        if(cart[i].tempItemID == itemID)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 function registerUser()
 {
     if(isUserRegistered())
@@ -519,8 +607,8 @@ function createUser()
     let newUser = 
     {
         email: document.getElementById("registerEmail").value,
-        password: document.getElementById("registerPassword1").value
-        //TODO - add cart here for user
+        password: document.getElementById("registerPassword1").value,
+        cart: []
     }
 
     registeredUsers.push(newUser);
@@ -542,6 +630,11 @@ function setActiveUser()
     document.getElementById("usernameLabel").innerHTML = activeUser.email;
 }
 
+function saveGuestCart()
+{
+    localStorage.setItem("guestCart", JSON.stringify(guestCart));
+}
+
 function loginUser(email, password)
 {
     for(user of registeredUsers)
@@ -553,12 +646,13 @@ function loginUser(email, password)
                 disableLoginFields();
                 enableLogoutFields();
 
-                    activeUser = user;
-                    saveActiveUserToLocalStorage();
-                    setActiveUser();
-                    enableActiveUserFields();
+                activeUser = user;
+                saveActiveUserToLocalStorage();
+                setActiveUser();
+                enableActiveUserFields();
 
-                //TODO - move any items in the cart to the users cart -- may need to merge items in the cart
+                mergeCarts();
+
                 return;
             }
             else
@@ -569,6 +663,63 @@ function loginUser(email, password)
         }
     }
     alert("USER DOES NOT EXIST");
+}
+
+function mergeCarts()
+{
+    let mergeFlag = true;
+    if(activeUser.cart.length > 0)
+    {
+        mergeFlag = confirm("Merge Items In Cart With Saved Items?");
+    }
+
+    if(mergeFlag)
+    {
+        for(let i = 0; i < guestCart.length; i++)
+        {
+            if(!isItemInCart(activeUser.cart, guestCart[i].tempItemID))
+            {
+                activeUser.cart.push(guestCart[i]);
+            }
+            else
+            {
+                for(let j = 0; j < activeUser.cart.length; j++)
+                {
+                    if(activeUser.cart[j].tempItemID == guestCart[i].tempItemID)
+                    {
+                        activeUser.cart[j].tempItemQty += guestCart[i].tempItemQty;
+                        break;
+                    }
+                }
+            }
+        }
+
+    }
+    else
+    {
+        if(confirm("Replace Saved Items With Items In Cart?"))
+        {
+            activeUser.cart = [];
+            for(let i = 0; i < guestCart.length; i++)
+            {
+                activeUser.cart.push(guestCart[i]);
+            }
+        }
+    }
+
+    updateRegisteredUserCart();
+    saveUsersToLocalStorage();
+    saveActiveUserToLocalStorage();
+    resetGuest();
+}
+
+function resetGuest()
+{
+    guestCart = [];
+    if(localStorage.getItem("guestCart") !== null)
+    {
+        localStorage.removeItem("guestCart");
+    }
 }
 
 function logoutUser()
