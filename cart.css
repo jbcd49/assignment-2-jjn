@@ -27,6 +27,94 @@ main
 {
     grid-area: main;
     background-color: gray;
+
+    display: grid;
+
+    grid-template-areas: 
+        "spacer cartContainer spacer";
+
+    grid-template-columns: 150px 1fr 150px;
+    grid-template-rows: fill;
+}
+
+#cartContainer
+{
+    background-color: lightgray;
+    box-shadow: -5px 0px 5px black, 5px 0px 5px black;
+
+    display: grid;
+
+    grid-template-areas: 
+        "imageHead nameHead priceHead qtyHead"
+        "image name price qty";
+
+    grid-template-columns: 1fr 3fr 3fr 3fr;
+    grid-template-rows: repeat(auto-fill, 100px);
+
+    row-gap: 10px;
+}
+
+#imageHead
+{
+    grid-area: imageHead;
+}
+
+#nameHead
+{
+    grid-area: nameHead;
+}
+
+#priceHead
+{
+    grid-area: priceHead;
+}
+
+#qtyHead
+{
+    grid-area: qtyHead;
+}
+
+.image
+{
+    background-color: lightgreen;
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+}
+
+.name
+{
+    background-color: lightpink;
+    padding: 20px;
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+}
+
+.price
+{
+    background-color: lightskyblue;
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+}
+
+.qty
+{
+    background-color: lightyellow;
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+}
+
+.itemHeader
+{
+    grid-area: itemHead;
+    padding-top: 60px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: xx-large;
 }
 
 #logoutButton
