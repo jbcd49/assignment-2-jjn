@@ -70,7 +70,6 @@ function renderCart()
     let headerImage = document.createElement("div");
     headerImage.id = "imageHead";
     headerImage.className = "itemHeader";
-    headerImage.innerHTML = '<span id="imageHeader">IMAGE</span>';
     tempCartHandle.appendChild(headerImage);
 
     let headerName = document.createElement("div");
@@ -91,6 +90,7 @@ function renderCart()
     headerQty.innerHTML = '<span id="imageHeader">QTY</span>';
     tempCartHandle.appendChild(headerQty);
 
+    let cartTotal = 0;
     //build items from cart
     for(let i = 0; i < cart.length; i++)
     {
@@ -100,8 +100,8 @@ function renderCart()
         tempImage.className = "image";
         let tempImageElement = document.createElement("img");
         tempImageElement.src = tempInventoryItem.productImage;
-        tempImageElement.width = "100";
-        tempImageElement.height = "100";
+        tempImageElement.width = "150";
+        tempImageElement.height = "148";
         tempImage.appendChild(tempImageElement);
         tempCartHandle.appendChild(tempImage);
 
@@ -116,17 +116,44 @@ function renderCart()
 
         let tempPrice = document.createElement("div");
         tempPrice.className = "price";
-        tempPrice.innerHTML = '<p>$'
-            + tempInventoryItem.productPrice
+        tempPrice.innerHTML = '<p>'
+            + formatPriceString(parseFloat(tempInventoryItem.productPrice))
             + '</p>';
         tempCartHandle.appendChild(tempPrice);
 
         let tempQty = document.createElement("div");
         tempQty.className = "qty";
-        tempQty.innerHTML = cart[i].tempItemQty;
+        tempQty.innerHTML = '<button class="btn btn-info qtyButton">-</button> '
+            + cart[i].tempItemQty
+            + ' <button class="btn btn-info qtyButton">+</button> '
+            + '<button class="btn btn-danger removeButton">Remove</button>';
         tempCartHandle.appendChild(tempQty);
+
+        cartTotal += (parseFloat(tempInventoryItem.productPrice) * parseInt(cart[i].tempItemQty));
     }
 
+    let spacer1 = document.createElement("div");
+    spacer1.id = "spacer";
+    tempCartHandle.appendChild(spacer1);
+    let totalLabel = document.createElement("div");
+    totalLabel.id = "totalLabelDiv";
+    totalLabel.innerHTML = "<span id='totalLabel'>SUBTOTAL: </span>";
+    tempCartHandle.appendChild(totalLabel);
+    let totalDiv = document.createElement("div");
+    totalDiv.id = "totalDiv";
+    totalDiv.innerHTML = formatPriceString(cartTotal);
+    tempCartHandle.appendChild(totalDiv);
+
+    let checkoutDiv = document.createElement("div");
+    checkoutDiv.id = "checkoutDiv";
+    checkoutDiv.innerHTML = '<button id="checkoutButton" class="btn btn-info">CHECKOUT</button>';
+    tempCartHandle.appendChild(checkoutDiv);
+
+}
+
+function formatPriceString(price)
+{
+    return '$' + price.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 }
 
 function populateInventory()
@@ -282,7 +309,7 @@ function renderItemList()
 
         let tempPrice = document.createElement("div");
         tempPrice.className = "itemPrice";
-        tempPrice.innerHTML = "$" + inventory[i].productPrice;
+        tempPrice.innerHTML = formatPriceString(parseFloat(inventory[i].productPrice));
         //temp
             tempTotal += parseFloat(inventory[i].productPrice);
         //temp

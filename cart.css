@@ -33,7 +33,7 @@ main
     grid-template-areas: 
         "spacer cartContainer spacer";
 
-    grid-template-columns: 150px 1fr 150px;
+    grid-template-columns: 1fr 6fr 1fr;
     grid-template-rows: fill;
 }
 
@@ -48,8 +48,8 @@ main
         "imageHead nameHead priceHead qtyHead"
         "image name price qty";
 
-    grid-template-columns: 1fr 3fr 3fr 3fr;
-    grid-template-rows: repeat(auto-fill, 100px);
+    grid-template-columns: 150px 2fr 1fr 220px;
+    grid-template-rows: 60px repeat(auto-fill, 150px);
 
     row-gap: 10px;
 }
@@ -76,45 +76,122 @@ main
 
 .image
 {
-    background-color: lightgreen;
+    background-color: white;
     text-align: left;
     font-weight: bold;
     font-size: large;
     text-align: center;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
 }
 
 .name
 {
-    background-color: lightpink;
+    background-color: white;
     padding: 20px;
     text-align: left;
     font-weight: bold;
     font-size: large;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
 }
 
 .price
 {
-    background-color: lightskyblue;
+    background-color: white;
+    padding: 20px;
     text-align: left;
     font-weight: bold;
     font-size: large;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
 }
 
 .qty
 {
-    background-color: lightyellow;
-    text-align: left;
+    background-color: white;
+    padding-top: 20px;
+    padding-left: 20px;
+    text-align: justify;
     font-weight: bold;
     font-size: large;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+}
+
+.qtyButton
+{
+    height: 35px;
+    width: 35px;
+    margin: auto;
+    font-weight: bolder;
+}
+
+.removeButton
+{
+    margin: auto;
 }
 
 .itemHeader
 {
     grid-area: itemHead;
-    padding-top: 60px;
-    text-align: center;
+    padding-top: 10px;
+    padding-left: 20px;
     font-weight: bolder;
     font-size: xx-large;
+}
+
+#spacer
+{
+    background-color: white;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+    height: 60px;
+}
+
+#totalLabelDiv
+{
+    background-color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: large;
+    text-align: right;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+    font-weight: bolder;
+    font-size: x-large;
+    height: 60px;
+}
+
+#totalDiv
+{
+    background-color: white;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: large;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+    font-weight: bolder;
+    font-size: x-large;
+    height: 60px;
+}
+
+#checkoutDiv
+{
+    background-color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-size: large;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+    text-align: center;
+    height: 60px;
+}
+
+#checkoutButton
+{
+    width: 150px;
 }
 
 #logoutButton

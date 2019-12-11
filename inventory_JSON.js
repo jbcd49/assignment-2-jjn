@@ -236,7 +236,7 @@ let inventory_JSON =
         productID: "30",
         productName: "Oracle Gaming Computer",
         productBrand: "SkyTech",
-        productPrice: "1,535.98",
+        productPrice: "1535.98",
         productCategory: "computers",
         productImage: "./resources/OracleGamingComputer.jpg"
     },
