@@ -49,12 +49,27 @@ main
 
     /* this is the style for the css-grid that the carousel element will be placed in */
     /* you can change, add or delete any properties you want here */
-
+    margin: 20px;
     /* temp color */
         background-color: lightgray;
     /* temp */
 }
 
+.carousel{
+    background: #2f4357;
+    margin-top: 8px;
+}
+.carousel-item{
+   
+    text-align: center;
+    min-height: 75px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+}
+/* .carousel-control-prev{
+    
+}
+.carousel-control-next{
+    
+} */
 .allItemsContainer
 {
     /* do not modify or delete the grid-area property - it controls placement in its parent element*/
