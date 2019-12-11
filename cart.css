@@ -1,0 +1,208 @@
+body
+{
+    background-color: black;
+    min-width: 950px;
+}
+
+.pageContainer
+{
+    display: grid;
+
+    grid-template-areas: 
+        "header header"
+        "main main";
+
+    grid-template-columns: fill;
+    grid-template-rows: auto 1fr;
+
+    height: 100vh;
+}
+
+header
+{
+    grid-area: header;
+}
+
+main
+{
+    grid-area: main;
+    background-color: gray;
+
+    display: grid;
+
+    grid-template-areas: 
+        "spacer cartContainer spacer";
+
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-rows: fill;
+}
+
+#cartContainer
+{
+    background-color: lightgray;
+    box-shadow: -5px 0px 5px black, 5px 0px 5px black;
+
+    display: grid;
+
+    grid-template-areas: 
+        "imageHead nameHead priceHead qtyHead"
+        "image name price qty";
+
+    grid-template-columns: 150px 2fr 1fr 220px;
+    grid-template-rows: 60px repeat(auto-fill, 150px);
+
+    row-gap: 10px;
+}
+
+#imageHead
+{
+    grid-area: imageHead;
+}
+
+#nameHead
+{
+    grid-area: nameHead;
+}
+
+#priceHead
+{
+    grid-area: priceHead;
+}
+
+#qtyHead
+{
+    grid-area: qtyHead;
+}
+
+.image
+{
+    background-color: white;
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+}
+
+.name
+{
+    background-color: white;
+    padding: 20px;
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+}
+
+.price
+{
+    background-color: white;
+    padding: 20px;
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+}
+
+.qty
+{
+    background-color: white;
+    padding-top: 20px;
+    padding-left: 20px;
+    text-align: justify;
+    font-weight: bold;
+    font-size: large;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+}
+
+.qtyButton
+{
+    height: 35px;
+    width: 35px;
+    margin: auto;
+    font-weight: bolder;
+}
+
+.removeButton
+{
+    margin: auto;
+}
+
+.itemHeader
+{
+    grid-area: itemHead;
+    padding-top: 10px;
+    padding-left: 20px;
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+#spacer
+{
+    background-color: white;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+    height: 60px;
+}
+
+#totalLabelDiv
+{
+    background-color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    font-size: large;
+    text-align: right;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+    font-weight: bolder;
+    font-size: x-large;
+    height: 60px;
+}
+
+#totalDiv
+{
+    background-color: white;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: large;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+    font-weight: bolder;
+    font-size: x-large;
+    height: 60px;
+}
+
+#checkoutDiv
+{
+    background-color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-size: large;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+    text-align: center;
+    height: 60px;
+}
+
+#checkoutButton
+{
+    width: 150px;
+}
+
+#logoutButton
+{
+    display: none;
+}
+
+#usernameLabel
+{
+    display: none;
+    color: white;
+    font-size: 20px;
+    margin: 0;
+}
