@@ -27,7 +27,32 @@ main
 {
     grid-area: main;
     background-color: gray;
-    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    display: grid;
+
+    grid-template-areas: 
+        "form totals";
+    
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+}
+
+#checkoutContainer
+{
+    grid-area: form;
+    background-color: lightgray;
+    box-shadow: -5px 0px 5px black;
+    border-right: #343a40 3px solid;
+}
+
+#totalsContainer
+{
+    grid-area: totals;
+    background-color: lightgray;
+    box-shadow: 5px 0px 5px black;
+
 }
 
 #logoutButton

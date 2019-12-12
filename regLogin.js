@@ -166,9 +166,39 @@ function renderCart()
 
     let checkoutDiv = document.createElement("div");
     checkoutDiv.id = "checkoutDiv";
-    checkoutDiv.innerHTML = '<button id="checkoutButton" class="btn btn-info btn-style">CHECKOUT</button>';
+    let checkoutButton = document.createElement("button");
+    checkoutButton.id = "checkoutButton";
+    checkoutButton.innerHTML = "CHECKOUT";
+    checkoutButton.className = "btn btn-info btn-style";
+    checkoutButton.onclick = () => 
+    {
+        checkoutRedirect();
+    };
+    checkoutDiv.appendChild(checkoutButton);
+
     tempCartHandle.appendChild(checkoutDiv);
 
+}
+
+function checkoutRedirect()
+{
+    let cart = [];
+    if( activeUser != null)
+    {
+        cart = activeUser.cart;
+    }
+    else
+    {
+        cart = guestCart;
+    }
+    if(cart.length == 0)
+    {
+        alert("NO ITEMS IN CART");
+    }
+    else
+    {
+        window.location.href = "./checkout.html";
+    }
 }
 
 function incrementCartQty(id)
@@ -849,6 +879,10 @@ function loginUser(email, password)
                 {
                     renderCart();
                 }
+                if(document.getElementById("checkoutContainer") !== null)
+                {
+                    window.location.href = "./cart.html";
+                }
 
                 return;
             }
@@ -930,6 +964,10 @@ function logoutUser()
     if(document.getElementById("cartContainer") !== null)
     {
         renderCart();
+    }
+    if(document.getElementById("checkoutContainer") !== null)
+    {
+        window.location.href = "./index.html";
     }
 }
 
