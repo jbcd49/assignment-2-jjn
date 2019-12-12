@@ -120,3 +120,16 @@ main
 {
     filter: invert(60%);   
 }
+
+.home-style
+{
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
+}
+
+.btn-style
+{
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: black 3px 3px 3px;
+}

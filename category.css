@@ -111,11 +111,6 @@ main
     margin-right: 10px;
 }
 
-.addButton
-{
-    border-radius: 5px;
-}
-
 #logoutButton
 {
     display: none;
@@ -155,4 +150,17 @@ ul
     font-size: smaller;
     display: none;
     cursor: pointer;
+}
+
+.home-style
+{
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
+}
+
+.btn-style
+{
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: black 3px 3px 3px;
 }

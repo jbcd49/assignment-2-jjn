@@ -30,50 +30,6 @@ main
     padding: 10px;
 }
 
-.itemContainer
-{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-
-    row-gap: 10px;
-    column-gap: 10px;
-}
-
-.item
-{
-    background-color: lightgray;
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: black 3px 3px 3px;
-}
-
-.regItem
-{
-    margin: 10px;
-}
-
-.regInput
-{
-    width: 300px;
-}
-
-.regItem input
-{
-    width: 200px;
-}
-
-.regButton
-{
-    width: 130px;
-}
-
-#registerForm
-{
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-
 #logoutButton
 {
     display: none;

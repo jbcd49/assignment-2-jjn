@@ -121,15 +121,17 @@ main
 
 .qtyButton
 {
-    height: 35px;
     width: 35px;
-    margin: auto;
+    margin-right: 10px;
     font-weight: bolder;
 }
 
 .removeButton
 {
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 190px;
 }
 
 .itemHeader
@@ -205,4 +207,17 @@ main
     color: white;
     font-size: 20px;
     margin: 0;
+}
+
+.home-style
+{
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
+}
+
+.btn-style
+{
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: black 3px 3px 3px;
 }

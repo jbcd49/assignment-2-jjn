@@ -123,10 +123,10 @@ function renderCart()
 
         let tempQty = document.createElement("div");
         tempQty.className = "qty";
-        tempQty.innerHTML = '<button class="btn btn-info qtyButton">-</button> '
+        tempQty.innerHTML = '<button class="btn btn-info btn-style qtyButton">-</button> '
             + cart[i].tempItemQty
-            + ' <button class="btn btn-info qtyButton">+</button> '
-            + '<button class="btn btn-danger removeButton">Remove</button>';
+            + ' <button class="btn btn-info btn-style qtyButton">+</button> '
+            + '<button class="btn btn-danger btn-style removeButton">Remove</button>';
         tempCartHandle.appendChild(tempQty);
 
         cartTotal += (parseFloat(tempInventoryItem.productPrice) * parseInt(cart[i].tempItemQty));
@@ -146,7 +146,7 @@ function renderCart()
 
     let checkoutDiv = document.createElement("div");
     checkoutDiv.id = "checkoutDiv";
-    checkoutDiv.innerHTML = '<button id="checkoutButton" class="btn btn-info">CHECKOUT</button>';
+    checkoutDiv.innerHTML = '<button id="checkoutButton" class="btn btn-info btn-style">CHECKOUT</button>';
     tempCartHandle.appendChild(checkoutDiv);
 
 }
@@ -168,7 +168,7 @@ function filterItemList()
 {
     if(params.has('category'))
     {
-        console.log(params.get('category'));
+        //console.log(params.get('category'));
         inventory = inventory.filter( e => 
             {
                 return e.productCategory == params.get('category');
@@ -176,7 +176,7 @@ function filterItemList()
     }
     if(params.has('brand'))
     {
-        console.log(params.get('brand'));
+        //console.log(params.get('brand'));
         inventory = inventory.filter( e => 
             {
                 return e.productBrand == params.get('brand');
@@ -185,7 +185,7 @@ function filterItemList()
     }
     if(params.has('pricelowerlimit'))
     {
-        console.log(params.get('pricelowerlimit'));
+        //console.log(params.get('pricelowerlimit'));
         switch(params.get("pricelowerlimit"))
         {
             case "0":
@@ -288,10 +288,6 @@ function filterRedirect(filterOption, filterString)
 
 function renderItemList()
 {
-    //temp
-        let tempTotal = 0;
-    //temp
-
     let temp = document.getElementById("itemList");
     for(let i = 0; i < inventory.length; i++)
     {
@@ -310,9 +306,6 @@ function renderItemList()
         let tempPrice = document.createElement("div");
         tempPrice.className = "itemPrice";
         tempPrice.innerHTML = formatPriceString(parseFloat(inventory[i].productPrice));
-        //temp
-            tempTotal += parseFloat(inventory[i].productPrice);
-        //temp
 
         let tempCartForm = document.createElement("div");
         tempCartForm.className = "itemCartForm";
@@ -333,7 +326,9 @@ function renderItemList()
 
         let tempButton = document.createElement("button");
         tempButton.innerHTML = "Add To Cart";
-        tempButton.className = "addButton";
+        tempButton.className = "btn btn-info btn-style";
+        tempButton.style.height = "35px";
+        tempButton.style.marginBottom = "5px";
 
         tempForm.addEventListener("submit", () => {
             addToCart(tempItem.id, tempSelect.id);
@@ -350,9 +345,6 @@ function renderItemList()
 
         temp.appendChild(tempItem);
     }
-    //temp
-        console.log(tempTotal);
-    //temp
 }
 
 function renderSideBar()
@@ -599,7 +591,7 @@ function addToCart(itemID, itemQtySelect)
         }
         saveGuestCart();
         //temp
-            console.log(guestCart);
+            //console.log(guestCart);
         //temp
     }
     else
@@ -625,12 +617,12 @@ function addToCart(itemID, itemQtySelect)
         saveUsersToLocalStorage();
         saveActiveUserToLocalStorage();
         //temp
-            console.log(activeUser.cart);
-            console.log("registered users: " + registeredUsers[0].cart[0].tempItemID);
+            //console.log(activeUser.cart);
+            //console.log("registered users: " + registeredUsers[0].cart[0].tempItemID);
         //temp
     }
     //temp
-        console.log("item: " + itemID + " qty: " + document.getElementById(itemQtySelect).value);
+        //console.log("item: " + itemID + " qty: " + document.getElementById(itemQtySelect).value);
     //temp
 }
 
