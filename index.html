@@ -30,59 +30,57 @@
             </nav>
         </header>
         <main>
-            <div class="carouselContainer">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- this is the grid for the carousel, drop the bootstrap element in this div -->
-                
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                      <li data-target="#myCarousel" data-slide-to="1"></li>
-                      <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
+          <div class="carouselContainer">
+
+            <div id="carouselElement" class="carousel slide" data-ride="carousel">
                   
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img class="d-block w-100" src="resources/HDMItoHDMI_6ft.jpg" alt="Cables">
-                        <!-- <div class="carousel-caption">
-                          <h3>Cables</h3>
-                        </div> -->
-                      </div>
-                  
-                      <div class="carousel-item">
-                        <img class="d-block w-100" src="resources/AcerAspire.jpg" alt="Computers">
-                        <!-- <div class="carousel-caption">
-                          <h3>Computers</h3>
-                        </div> -->
-                      </div>
-                  
-                      <div class="carousel-item">
-                        <img class="d-block w-100" src="resources/BoseQCheadphones.jpg" alt="Headphones & Earbuds">
-                         <div class="carousel-caption">
-                          <h3>Headphones & Earbuds</h3>
-                        </div> 
-                      </div>
-                        
-                    </div>
-                  
-                    <!-- Left and right controls -->
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                          </a>
-                          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                          </a>
-                    
-                  </div>
-            </div>
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#carouselElement" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselElement" data-slide-to="1"></li>
+                <li data-target="#carouselElement" data-slide-to="2"></li>
+              </ol>
             
-            <div class="allItemsContainer"> 
-                <!--temp link to category, can link to category in this div-->
-                    <button style="border-radius: 5px; margin: 10px; height: 50px;" onclick="window.location.href = './category.html'">Shop All Items</button> 
-                <!--temp -->
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="carousel-item">
+                  <img class="d-block w-100 carouselImage" src="./resources/USB_A.jpg" onclick="window.location.href='./category.html?category=cables'" alt="Cables">
+                  <div class="carousel-caption d-none d-md-block">
+                    <div class="btn btn-info carouselBanner" onclick="window.location.href='./category.html?category=cables'">Cables</div>
+                  </div>
+                </div>
+            
+                <div class="carousel-item active">
+                  <img class="d-block w-100 carouselImage" src="resources/AcerAspire.jpg" onclick="window.location.href='./category.html?category=computers'" alt="Computers">
+                  <div class="carousel-caption d-none d-md-block">
+                    <div class="btn btn-info carouselBanner" onclick="window.location.href='./category.html?category=computers'">Computers</div>
+                  </div>
+                </div>
+            
+                <div class="carousel-item">
+                  <img class="d-block w-100 carouselImage" src="resources/BoseQCheadphones.jpg" onclick="window.location.href='./category.html?category=headphones'" alt="Headphones & Earbuds">
+                  <div class="carousel-caption d-none d-md-block">
+                    <div class="btn btn-info carouselBanner" onclick="window.location.href='./category.html?category=headphones'">Headphones</div>
+                  </div> 
+                </div>
+                  
+              </div>
+            
+              <!-- Left and right controls -->
+              <a class="carousel-control-prev" href="#carouselElement" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselElement" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+              
+            </div>
+          </div>
+            
+            <div class="allItemsContainer btn btn-info" onclick="window.location.href = './category.html'"> 
+              <h1 id="allItems">SHOP ALL ITEMS</h1>
             </div>
         </main>
     </div>

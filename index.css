@@ -36,7 +36,7 @@ main
         "allItems";
 
     grid-template-columns: 1fr;
-    grid-template-rows: 4fr 1fr;
+    grid-template-rows: minmax(500px, 80vh) 75px;
 
     row-gap: 10px;
     column-gap: 10px;
@@ -44,49 +44,24 @@ main
 
 .carouselContainer
 {
-    /* do not modify or delete the grid-area property - it controls placement in its parent element*/
     grid-area: carousel;
 
-    /* this is the style for the css-grid that the carousel element will be placed in */
-    /* you can change, add or delete any properties you want here */
-    margin: 20px;
-    /* temp color */
-        background-color: lightgray;
-    /* temp */
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: black 3px 3px 3px;
 }
 
-.carousel{
-    background: #2f4357;
-    margin-top: 8px;
-}
-.carousel-item{
-   
-    text-align: center;
-    min-height: 75px; /* Prevent carousel from being distorted if for some reason image doesn't load */
-}
-/* .carousel-control-prev{
-    
-}
-.carousel-control-next{
-    
-} */
 .allItemsContainer
 {
-    /* do not modify or delete the grid-area property - it controls placement in its parent element*/
     grid-area: allItems;
 
-    /* this is the style for the css-grid that the link to all items (default category page) will be placed in  */
-    /* you can change, add or delete any properties you want here */
-
-    background-color: lightgray;
     text-align: center;
     border-radius: 5px;
     box-shadow: black 3px 3px 3px;
     margin-left: auto;
     margin-right: auto;
-    /* temp dimensions */
-        width: 500px;
-    /* temp */
+    width: 500px;
+    padding: 10px;
 }
 
 #logoutButton
@@ -100,4 +75,48 @@ main
     color: white;
     font-size: 20px;
     margin: 0;
+}
+
+.carouselBanner
+{
+    color: white;
+    padding: 10px;
+    font-weight: bolder;
+    font-size: xx-large;
+    width: 250px;
+    margin: auto;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: black 3px 3px 3px;
+    cursor: pointer;
+}
+
+#carouselElement
+{
+    height: 80vh;
+    min-height: 500px;
+}
+
+.carouselImage
+{
+    object-fit: contain;
+    height: 80vh;
+    min-height: 500px;
+    cursor: pointer;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon
+{
+    filter: invert(60%);
+}
+
+#allItems
+{
+    text-shadow: 2px 2px 2px black;
+    font-weight: bolder;
+}
+
+.carousel-indicators
+{
+    filter: invert(60%);   
 }
