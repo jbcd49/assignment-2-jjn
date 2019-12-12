@@ -123,10 +123,30 @@ function renderCart()
 
         let tempQty = document.createElement("div");
         tempQty.className = "qty";
-        tempQty.innerHTML = '<button class="btn btn-info btn-style qtyButton">-</button> '
-            + cart[i].tempItemQty
-            + ' <button class="btn btn-info btn-style qtyButton">+</button> '
-            + '<button class="btn btn-danger btn-style removeButton">Remove</button>';
+        
+        let tempDecrement = document.createElement("button");
+        tempDecrement.innerHTML = "-";
+        tempDecrement.className = "btn btn-info btn-style qtyButton";
+        tempDecrement.onclick = () => { decrementCartQty(tempInventoryItem.productID); };
+        tempQty.appendChild(tempDecrement);
+
+        let tempNum = document.createElement("div");
+        tempNum.innerHTML = cart[i].tempItemQty;
+        tempNum.className = "qtyNum";
+        tempQty.appendChild(tempNum);
+
+        let tempIncrement = document.createElement("button");
+        tempIncrement.innerHTML = "+";
+        tempIncrement.className = "btn btn-info btn-style qtyButton";
+        tempIncrement.onclick = () => { incrementCartQty(tempInventoryItem.productID); };
+        tempQty.appendChild(tempIncrement);
+
+        let tempRemove = document.createElement("button");
+        tempRemove.innerHTML = "Remove";
+        tempRemove.className = "btn btn-danger btn-style removeButton";
+        tempRemove.onclick = () => { removeCartItem(tempInventoryItem.productID); };
+        tempQty.appendChild(tempRemove);
+        
         tempCartHandle.appendChild(tempQty);
 
         cartTotal += (parseFloat(tempInventoryItem.productPrice) * parseInt(cart[i].tempItemQty));
@@ -149,6 +169,78 @@ function renderCart()
     checkoutDiv.innerHTML = '<button id="checkoutButton" class="btn btn-info btn-style">CHECKOUT</button>';
     tempCartHandle.appendChild(checkoutDiv);
 
+}
+
+function incrementCartQty(id)
+{
+    updateCartQty(id, 1);
+}
+
+function decrementCartQty(id)
+{
+    updateCartQty(id, -1);
+}
+
+function updateCartQty(id, qtyChange)
+{
+    if(activeUser === null)
+    {
+        for(let i = 0; i < guestCart.length; i++)
+        {
+            if(guestCart[i].tempItemID == id)
+            {
+                guestCart[i].tempItemQty += qtyChange;
+                if(guestCart[i].tempItemQty == 0)
+                {
+                    removeCartItem(id);
+                }
+                saveGuestCart();
+                break;
+            }
+        }
+    }
+    else
+    {
+        for(let i = 0; i < activeUser.cart.length; i++)
+        {
+            if(activeUser.cart[i].tempItemID == id)
+            {
+                activeUser.cart[i].tempItemQty += qtyChange;
+                if(activeUser.cart[i].tempItemQty == 0)
+                {
+                    removeCartItem(id);
+                }
+                updateRegisteredUserCart(activeUser.email);
+                saveUsersToLocalStorage();
+                saveActiveUserToLocalStorage();
+                break;
+            }
+        }
+    }
+    renderCart();
+}
+
+function removeCartItem(id)
+{
+    if(activeUser === null)
+    {
+        guestCart = guestCart.filter( e => 
+            {
+                return e.tempItemID != id;
+            });
+        saveGuestCart();
+    }
+    else
+    {
+        activeUser.cart = activeUser.cart.filter( e => 
+            {
+                return e.tempItemID != id;
+            });
+        updateRegisteredUserCart(activeUser.email);
+        saveUsersToLocalStorage();
+        saveActiveUserToLocalStorage();
+    }
+    renderCart();
 }
 
 function formatPriceString(price)
