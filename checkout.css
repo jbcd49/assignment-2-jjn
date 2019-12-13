@@ -27,32 +27,18 @@ main
 {
     grid-area: main;
     background-color: gray;
-    padding-left: 50px;
-    padding-right: 50px;
 
     display: grid;
-
-    grid-template-areas: 
-        "form totals";
     
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 6fr 1fr;
     grid-template-rows: auto;
 }
 
 #checkoutContainer
 {
-    grid-area: form;
     background-color: lightgray;
-    box-shadow: -5px 0px 5px black;
-    border-right: #343a40 3px solid;
-}
-
-#totalsContainer
-{
-    grid-area: totals;
-    background-color: lightgray;
-    box-shadow: 5px 0px 5px black;
-
+    box-shadow: -5px 0px 5px black, 5px 0px 5px black;
+    text-align: center;
 }
 
 #logoutButton
@@ -79,4 +65,122 @@ main
     font-weight: bold;
     text-shadow: 2px 2px 2px black;
     box-shadow: black 3px 3px 3px;
+}
+
+#checkoutFName
+{
+    width: 40%;
+}
+
+#checkoutLName
+{
+    width: 40%;
+}
+
+#checkoutAddress
+{
+    width: 80%;
+    margin-top: 20px;
+}
+
+#checkoutCity
+{
+    width: 26%;
+    margin-top: 20px;
+}
+
+#checkoutState
+{
+    width: 27.5%;
+    margin-top: 20px;
+}
+
+#checkoutZipcode
+{
+    width: 26%;
+    margin-top: 20px;
+}
+
+#checkoutPlaceOrder
+{
+    width: 60%;
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
+#checkoutReset
+{
+    width: 20%;
+    margin-top: 20px;
+}
+
+#checkoutCardNumber
+{
+    width: 49.5%;
+}
+
+#checkoutCardMonth
+{
+    width: 10%;
+}
+
+#checkoutCardYear
+{
+    width: 10%;
+}
+
+#checkoutCardCvv
+{
+    width: 10%;
+}
+
+#orderSummary
+{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bolder;
+    font-size: xx-large;
+    border-radius: 5px;
+    background-color: white;
+    width: 600px;
+    box-shadow: black 3px 3px 3px, black -3px 3px 3px, black -3px -3px 3px, black 3px -3px 3px;
+}
+
+.summaryHeader
+{
+    text-align: left;
+    text-shadow: gray 1px 1px 2px;
+    padding: 10px;
+
+}
+
+.summaryNum
+{
+    text-align: right;
+    text-shadow: gray 1px 1px 2px;
+    padding: 10px;
+
+}
+
+#total, #totalLabel
+{
+    border-top: black solid 3px;
+    color: #17a2b8;
+}
+
+#paymentInfo
+{
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-shadow: gray 1px 1px 2px;
+    font-weight: bold;
+}
+
+#shippingInfo
+{
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-shadow: gray 1px 1px 2px;
+    font-weight: bold;
 }

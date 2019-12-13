@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Discount Warehouse</title>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="./bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./checkout.css">
 </head>
 <body>
@@ -30,25 +29,58 @@
             </nav>
         </header>
         <main>
+            <div></div>
             <div id="checkoutContainer">
+                <table id="orderSummary">
+                    <tr>
+                        <th class="summaryHeader">Subtotal:</th>
+                        <td class="summaryNum" id="subtotal">$0.00</td>
+                    </tr>
+                    <tr>
+                        <th class="summaryHeader">Shipping:</th>
+                        <td class="summaryNum" id="shipping">$0.00</td>
+                    </tr>
+                    <tr>
+                        <th class="summaryHeader">Est. Tax:</th>
+                        <td class="summaryNum" id="tax">$0.00</td>
+                    </tr>
+                    <tr>
+                        <th class="summaryHeader" id="totalLabel">Order Total:</th>
+                        <td class="summaryNum" id="total">$0.00</td>
+                    </tr>
+                </table>
+                <hr>
                 <form action="" onsubmit="return false;">
+                    <h3 id="shippingInfo">Shipping Information</h3>
+                    <br>
                     <input type="text" id="checkoutFName" required placeholder="First Name">
                     <input type="text" id="checkoutLName" required placeholder="Last Name">
-
+                    <br>
+                    <input type="text" id="checkoutAddress" required placeholder="Street Address">
+                    <br>
+                    <input type="text" id="checkoutCity" required placeholder="City">
+                    <input type="text" id="checkoutState" required placeholder="State">
+                    <input type="tel" id="checkoutZipcode" required placeholder="ZIP Code" pattern="[0-9]{5}">
+                    <br>
+                    <hr>
+                    <h3 id="paymentInfo">Payment Information</h3>
+                    <br>
+                    <input type="tel" id="checkoutCardNumber" required placeholder="Card Number: 1234123412341234" pattern="[0-9]{16}">
+                    <input type="tel" id="checkoutCardMonth" required placeholder="MM" pattern="[0-9]{2}">
+                    <input type="tel" id="checkoutCardYear" required placeholder="YYYY" pattern="[0-9]{4}">
+                    <input type="tel" id="checkoutCardCvv" required placeholder="CVV" pattern="[0-9]{3}">
+                    <br>
+                    <button type="submit" id="checkoutPlaceOrder" class="btn btn-info btn-style">Place Order</button>
+                    <button type="reset" id="checkoutReset" class="btn btn-danger btn-style">Reset</button>
                 </form>
             </div>
-            <div id="totalsContainer">
-                TOTAL: $1999.99
-            </div>
+            <div></div>
         </main>
     </div>
 </body>
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-<script src="./bootstrap/jquery.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
-<script src="./bootstrap/cloudflare.js"></script>
-<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
-<script src="./bootstrap/bootstrap.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="./inventory_JSON.js"></script>
 <script src="./regLogin.js"></script>
 </html>
