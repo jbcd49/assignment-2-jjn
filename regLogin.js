@@ -46,7 +46,124 @@ window.onload = () =>
         renderCart();
     }
 
+    if(document.getElementById("orderSummary") !== null)
+    {
+        renderOrderSummary();
+    }
+
     attachListeners();
+}
+
+function renderOrderSummary()
+{
+    let cart = [];
+    if( activeUser != null)
+    {
+        cart = activeUser.cart;
+    }
+    else
+    {
+        cart = guestCart;
+    }
+    populateInventory();
+    
+    let runningTotal = 0;
+    let tempSubtotal = 0;
+    for(let i = 0; i < cart.length; i++)
+    {
+        let tempInventoryItem = inventory[(parseInt(cart[i].tempItemID) - 1)];
+        tempSubtotal += (parseFloat(tempInventoryItem.productPrice) * parseInt(cart[i].tempItemQty));
+    }
+    document.getElementById("subtotal").innerHTML = formatPriceString(tempSubtotal);
+    runningTotal += tempSubtotal;
+
+    const flatRateShipping = 4.99;
+    document.getElementById("shipping").innerHTML = formatPriceString(flatRateShipping);
+    runningTotal += flatRateShipping;
+
+    const taxRate = 0.07;
+    document.getElementById("tax").innerHTML = formatPriceString(taxRate * runningTotal);
+    runningTotal *= (taxRate + 1);
+
+    document.getElementById("total").innerHTML = formatPriceString(runningTotal);
+    
+    //set hidden field to pass value to placeorder
+    document.getElementById("orderTotal").value = runningTotal.toFixed(2);
+}
+
+function placeOrder()
+{
+    if(isValidInputs())
+    {
+        let cart = [];
+        let user = "guest";
+        if( activeUser != null)
+        {
+            cart = activeUser.cart;
+            user = activeUser.email;
+        }
+        else
+        {
+            cart = guestCart;
+        }
+        let ordersList = [];
+
+        if(localStorage.getItem("ordersList") !== null)
+        {
+            ordersList = JSON.parse(localStorage.getItem("ordersList"));
+        }
+
+        ordersList.push({
+            username: user,
+            items: cart,
+            total: document.getElementById("orderTotal").value,
+            shippingInfo: 
+            {
+                fname: document.getElementById("checkoutFName").value,
+                lname: document.getElementById("checkoutLName").value,
+                address: document.getElementById("checkoutAddress").value,
+                city: document.getElementById("checkoutCity").value,
+                state: document.getElementById("checkoutState").value,
+                zip: document.getElementById("checkoutZipcode").value,
+            },
+            billingInfo:
+            {
+                cardNumber: document.getElementById("checkoutCardNumber").value,
+                cardMonth: document.getElementById("checkoutCardMonth").value,
+                cardYear: document.getElementById("checkoutCardYear").value,
+                cvv: document.getElementById("checkoutCardCvv").value
+            }
+        });
+
+        localStorage.setItem("ordersList", JSON.stringify(ordersList));
+        
+        if(activeUser != null)
+        {
+            activeUser.cart = [];
+            updateRegisteredUserCart(activeUser.email);
+            saveUsersToLocalStorage();
+            saveActiveUserToLocalStorage();
+        }
+        else
+        {
+            guestCart = [];
+            saveGuestCart();
+        }
+        
+        alert("ORDER PLACED, THANK YOU!");
+        window.location.href = "./index.html";
+    }
+    else
+    {
+        alert("ORDER FORM VALUES INVALID");
+    }
+}
+
+function isValidInputs()
+{
+    //TODO - Validate the checkout form inputs
+
+    return true;
 }
 
 function renderCart()
@@ -682,6 +799,13 @@ function attachListeners()
     {
         document.getElementById("registerForm").addEventListener("submit", () => {
             registerUser();
+        });
+    }
+
+    if(document.getElementById("checkoutForm") !== null)
+    {
+        document.getElementById("checkoutForm").addEventListener("submit", () => {
+            placeOrder();
         });
     }
 }

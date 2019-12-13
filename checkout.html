@@ -20,6 +20,7 @@
                                     <input type="email" id="loginEmail" required placeholder="Email">
                                     <input type="password" id="loginPassword" required placeholder="Password">
                                     <button class="btn btn-info btn-style" id="loginButton" type="submit">Log In</button>
+                                    <button type="reset" id="signUpButton" class="btn btn-info btn-style">Sign Up</button>
                                     <button type="reset" id="logoutButton" class="btn btn-info btn-style">Log Out</button>
                                     <a href="./cart.html" id="cartButton" class="btn btn-info btn-style">Cart</a>
                                 </form>
@@ -50,7 +51,8 @@
                     </tr>
                 </table>
                 <hr>
-                <form action="" onsubmit="return false;">
+                <form id="checkoutForm" action="" onsubmit="return false;">
+                    <input type="hidden" id="orderTotal">
                     <h3 id="shippingInfo">Shipping Information</h3>
                     <br>
                     <input type="text" id="checkoutFName" required placeholder="First Name">

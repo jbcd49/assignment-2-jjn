@@ -87,18 +87,21 @@ main
 {
     width: 26%;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #checkoutState
 {
     width: 27.5%;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #checkoutZipcode
 {
     width: 26%;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #checkoutPlaceOrder
@@ -139,6 +142,7 @@ main
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 30px;
     font-weight: bolder;
     font-size: xx-large;
     border-radius: 5px;
