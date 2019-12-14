@@ -443,7 +443,6 @@ function filterItemList()
 {
     if(params.has('category'))
     {
-        //console.log(params.get('category'));
         inventory = inventory.filter( e => 
             {
                 return e.productCategory == params.get('category');
@@ -451,7 +450,6 @@ function filterItemList()
     }
     if(params.has('brand'))
     {
-        //console.log(params.get('brand'));
         inventory = inventory.filter( e => 
             {
                 return e.productBrand == params.get('brand');
@@ -460,7 +458,6 @@ function filterItemList()
     }
     if(params.has('pricelowerlimit'))
     {
-        //console.log(params.get('pricelowerlimit'));
         switch(params.get("pricelowerlimit"))
         {
             case "0":
@@ -872,9 +869,6 @@ function addToCart(itemID, itemQtySelect)
             }
         }
         saveGuestCart();
-        //temp
-            //console.log(guestCart);
-        //temp
     }
     else
     {
@@ -898,14 +892,7 @@ function addToCart(itemID, itemQtySelect)
         updateRegisteredUserCart(activeUser.email);
         saveUsersToLocalStorage();
         saveActiveUserToLocalStorage();
-        //temp
-            //console.log(activeUser.cart);
-            //console.log("registered users: " + registeredUsers[0].cart[0].tempItemID);
-        //temp
     }
-    //temp
-        //console.log("item: " + itemID + " qty: " + document.getElementById(itemQtySelect).value);
-    //temp
 }
 
 function updateRegisteredUserCart(email)
