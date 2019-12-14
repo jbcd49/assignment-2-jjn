@@ -55,13 +55,13 @@
                     <input type="hidden" id="orderTotal">
                     <h3 id="shippingInfo">Shipping Information</h3>
                     <br>
-                    <input type="text" id="checkoutFName" required placeholder="First Name">
-                    <input type="text" id="checkoutLName" required placeholder="Last Name">
+                    <input type="text" id="checkoutFName" required placeholder="First Name" pattern="[A-Za-z]*">
+                    <input type="text" id="checkoutLName" required placeholder="Last Name" pattern="[A-Za-z]*">
                     <br>
-                    <input type="text" id="checkoutAddress" required placeholder="Street Address">
+                    <input type="text" id="checkoutAddress" required placeholder="Street Address" pattern="[0-9A-Za-z. ]*">
                     <br>
-                    <input type="text" id="checkoutCity" required placeholder="City">
-                    <input type="text" id="checkoutState" required placeholder="State">
+                    <input type="text" id="checkoutCity" required placeholder="City" pattern="[A-Za-z. ]*">
+                    <input type="text" id="checkoutState" required placeholder="State Code" pattern="[A-Za-z]{2}">
                     <input type="tel" id="checkoutZipcode" required placeholder="ZIP Code" pattern="[0-9]{5}">
                     <br>
                     <hr>

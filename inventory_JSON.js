@@ -2,10 +2,10 @@ let inventory_JSON =
 [
     {
         productID: "1",
-        productName: "HDMI cable - 15 feet",
-        productBrand: "Amazon Basics",
+        productName: "HDMI Cable - 15 ft",
+        productBrand: "AmazonBasics",
         productPrice: "11.99",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/hdmiCable15feet_amazonBasics.jpg"
     },
     {
@@ -13,183 +13,183 @@ let inventory_JSON =
         productName: "MacBook Air",
         productBrand: "Apple",
         productPrice: "999.99",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/macbookAir_apple.jpg"
     },
     {
         productID: "3",
-        productName: "Noise Cancelling Headphones",
+        productName: "NoiseBlock Headphones",
         productBrand: "Bose",
         productPrice: "399.00",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/BoseNCheadphones.jpg"
     },
     {
         productID: "4",
-        productName: "Lightning to USB A cable - 6 feet",
+        productName: "Lightning Cable - 6 ft",
         productBrand: "AmazonBasics",
         productPrice: "12.99",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/USB_A.jpg"
     },
     {
         productID: "5",
-        productName: "RJ45 Cat-6 Ethernet Patch Internet Cable - 5 Feet",
-        productBrand: "Amazon Basics",
+        productName: "Ethernet Cable - 5 ft",
+        productBrand: "AmazonBasics",
         productPrice: "4.53",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/ethernet_5ft.jpg"
     },
     {
         productID: "6",
-        productName: "USB to USB Extension Cable - 10 feet",
+        productName: "USB Ext. Cable - 10 ft",
         productBrand: "Cable Matters",
         productPrice: "7.99",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/USB_extension.jpg"
     },
     {
         productID: "7",
-        productName: "Cat8 Ethernet Cable - 6 feet",
+        productName: "Ethernet Cable - 6 ft",
         productBrand: "DbillionDa",
         productPrice: "7.99",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/ethernet_6ft.jpg"
     },
     {
         productID: "8",
-        productName: "DisplayPort to DisplayPort Cable - 10 feet",
+        productName: "DP Cable - 10 ft",
         productBrand: "Cable Matters",
         productPrice: "12.99",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/displayport_10ft.jpg"
     },
     {
         productID: "9",
-        productName: "USB-C Charge Cable",
+        productName: "USB-C Cable - 3 ft",
         productBrand: "Apple",
         productPrice: "35.00",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/appleUSB_C.jpg"
     },
     {
         productID: "10",
-        productName: "Lightning to USB Charge Cable",
+        productName: "Lightning Cable - 3 ft",
         productBrand: "Apple",
         productPrice: "29.00",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/applelightningtoUSBC.jpg"
     },
     {
         productID: "11",
-        productName: "Unidirectional DisplayPort to HDMI Adapter Cable",
+        productName: "DP to HDMI Cable - 6 ft",
         productBrand: "Cable Matters",
         productPrice: "10.99",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/unidirectional_displayport.jpg"
     },
     {
         productID: "12",
-        productName: "HDMI to HDMI Cable - 6 feet",
+        productName: "HDMI Cable - 6 ft",
         productBrand: "Cable Matters",
         productPrice: "8.99",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/HDMItoHDMI_6ft.jpg"
     },
     {
         productID: "13",
-        productName: "2-Pack XLR to XLR Microphone Cable - 3 feet",
+        productName: "2-Pack XLR Cable - 3 ft",
         productBrand: "Cable Matters",
         productPrice: "12.99",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/XLRtoXLR_2pack.jpg"
     },
     {
         productID: "14",
-        productName: "2-Pack Ultra Thin HDMI Cable - 6 feet",
+        productName: "2-Pack HDMI Cable - 6 ft",
         productBrand: "Cable Matters",
         productPrice: "13.99",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/UltraThinHDMI_2pack.jpg"
     },
     {
         productID: "15",
-        productName: "DisplayPort to DVI Cable",
+        productName: "DP to DVI Cable - 6 ft",
         productBrand: "Cable Matters",
         productPrice: "11.99",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/DisplayPort_toDVI.jpg"
     },
     {
         productID: "16",
-        productName: " Digital Optical Audio Toslink Sound Bar TV Cable",
+        productName: "Toslink Cable - 9 ft",
         productBrand: "AmazonBasics",
         productPrice: "5.56",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/digitalopticalaudio.jpg"
     },
     {
         productID: "17",
-        productName: "Coaxial TV Antenna Cable - 4 feet",
+        productName: "Coaxial Cable - 4 ft",
         productBrand: "AmazonBasics",
         productPrice: "6.59",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/coaxialTVantenna.jpg"
     },
     {
         productID: "18",
-        productName: "Apple Power Adapter Extension Cable",
+        productName: "Power Cable - 7 ft",
         productBrand: "Apple",
         productPrice: "19.00",
-        productCategory: "cables",
+        productCategory: "Cables",
         productImage: "./resources/ApplePowerAdapterExtension.jpg"
     },
     {
         productID: "19",
-        productName: "Chromebook 2-in-1 Convertible Laptop",
+        productName: "Chromebook 2-in-1",
         productBrand: "Lenovo",
         productPrice: "299.99",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/chromebook_lenovo.jpg"
     },
     {
         productID: "20",
-        productName: "Slim Desktop Computer",
+        productName: "Pavilion B18 Desktop",
         productBrand: "HP",
         productPrice: "299.99",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/HPdesktop.jpg"
     },
     {
         productID: "21",
-        productName: "Aspire 5 Slim Laptop",
+        productName: "Aspire 5 Laptop - 13 in",
         productBrand: "Acer",
         productPrice: "338.90",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/AcerAspire.jpg"
     },
     {
         productID: "22",
-        productName: "15.6 inch Business Laptop",
+        productName: "Pavilion Laptop - 15 in",
         productBrand: "HP",
         productPrice: "497.53",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/HPbusinesslaptop.jpg"
     },
     {
         productID: "23",
-        productName: "Blaze II Gaming Computer",
+        productName: "Blaze II Gaming Desktop",
         productBrand: "SkyTech",
         productPrice: "749.99 ",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/skytechblazeII.jpg"
     },
     {
         productID: "24",
-        productName: "ThinkCentre High Performance M91P Desktop Computer",
+        productName: "ThinkCentre M91P",
         productBrand: "Lenovo",
         productPrice: "132.89",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/LenovoThinkCentre.jpg"
     },
     {
@@ -197,15 +197,15 @@ let inventory_JSON =
         productName: "Inspiron 3470 Desktop",
         productBrand: "Dell",
         productPrice: "679.99",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/Inspiron3470.jpg"
     },
     {
         productID: "26",
-        productName: "Pavilion Desktop Computer",
+        productName: "Pavilion A19 Desktop",
         productBrand: "HP",
         productPrice: "629.99",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/PavillionDesktop.jpg"
     },
     {
@@ -213,7 +213,7 @@ let inventory_JSON =
         productName: "All-in-One Computer",
         productBrand: "HP",
         productPrice: "429.99",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/HP_allinone.jpg"
     },
     {
@@ -221,7 +221,7 @@ let inventory_JSON =
         productName: "iMac",
         productBrand: "Apple",
         productPrice: "455.00",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/iMac_apple.jpg"
     },
     {
@@ -229,39 +229,39 @@ let inventory_JSON =
         productName: "Ideacentre All-in-One",
         productBrand: "Lenovo",
         productPrice: "599.00",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/Lenovo_allinone.jpg"
     },
     {
         productID: "30",
-        productName: "Oracle Gaming Computer",
+        productName: "Oracle Gaming Desktop",
         productBrand: "SkyTech",
         productPrice: "1535.98",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/OracleGamingComputer.jpg"
     },
     {
         productID: "31",
-        productName: "OptiPlex 790 Desktop Computer",
+        productName: "OptiPlex 790 Desktop",
         productBrand: "Dell",
         productPrice: "214.97",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/DellOptiplex.jpg"
     },
     {
         productID: "32",
-        productName: "Inspiron 3000 HD Touchscreen All-in-One",
+        productName: "Inspiron 3000 All-in-One",
         productBrand: "Dell",
         productPrice: "649.99",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/DellInspiron3000.jpg"
     },
     {
         productID: "33",
-        productName: "XE500C13 Chromebook",
+        productName: "Chromebook XE500C13",
         productBrand: "Samsung",
         productPrice: "199.99",
-        productCategory: "computers",
+        productCategory: "Computers",
         productImage: "./resources/samsungchromebook.jpg"
     },
     {
@@ -269,31 +269,31 @@ let inventory_JSON =
         productName: "QuietComfort 35",
         productBrand: "Bose",
         productPrice: "349.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/BoseQCheadphones.jpg"
     },
     {
         productID: "35",
-        productName: "WH1000XM3 Noise Cancelling Headphones",
+        productName: "XM3 ANC Headphones",
         productBrand: "Sony",
         productPrice: "349.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/SonyNCheadphones.jpg"
     },
     {
         productID: "36",
-        productName: "MDRZX110/BLK ZX Series Stereo Headphones",
+        productName: "ZX Series Headphones",
         productBrand: "Sony",
         productPrice: "14.89",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/zxseriesheadphones.jpg"
     },
     {
         productID: "37",
-        productName: "EarPods with Lightning Connector",
+        productName: "EarPods - Lightning",
         productBrand: "Apple",
         productPrice: "29.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/appleearpods.jpg"
     },
     {
@@ -301,71 +301,71 @@ let inventory_JSON =
         productName: "Active InEar Headphones",
         productBrand: "Samsung",
         productPrice: "29.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/InEarHeadphones.jpg"
     },
     {
         productID: "39",
-        productName: "SoundSport Wireless Headphones",
+        productName: "SoundSport Wireless",
         productBrand: "Bose",
         productPrice: "149.00",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/BoseSoundSport.jpg"
     },
     {
         productID: "40",
-        productName: "Ink'd Plus In-Ear Earbud",
+        productName: "Ink'd Plus Earbuds",
         productBrand: "Skullcandy",
         productPrice: "17.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/SkullcandyEarbuds.jpg"
     },
     {
         productID: "41",
-        productName: "Wireless Gaming Headset G930",
+        productName: "G930 Gaming Headset",
         productBrand: "Logitech",
         productPrice: "168.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/Logitechg930.jpg"
     },
     {
         productID: "42",
-        productName: "Cat Ear Kids Headphones",
+        productName: "Cat Ear Headphones",
         productBrand: "DICEKOO",
         productPrice: "39.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/CatEarHeadphones.jpg"
     },
     {
         productID: "43",
-        productName: "Ultimate Ears 500 Noise-Isolating Earphones",
+        productName: "ISO-Ears 500 Earbuds",
         productBrand: "Logitech",
         productPrice: "39.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/logitechearphones.jpg"
     },
     {
         productID: "44",
-        productName: "HS70 Pro Wireless Gaming Headset",
+        productName: "HS70 Gaming Headset",
         productBrand: "Corsair",
         productPrice: "99.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/CorsairHeadset.jpg"
     },
     {
         productID: "45",
-        productName: "HS45 PC Gaming Headset",
+        productName: "HS45 Gaming Headset",
         productBrand: "Corsair",
         productPrice: "49.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/hs45CorsairHeadset.jpg"
     },
     {
         productID: "46",
-        productName: "G332 SE Stereo Gaming Headset",
+        productName: "G332 Gaming Headset",
         productBrand: "Logitech",
         productPrice: "59.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/G332LogitechHeadset.jpg"
     },
     {
@@ -373,15 +373,15 @@ let inventory_JSON =
         productName: "Kraken Gaming Headset",
         productBrand: "Razer",
         productPrice: "79.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/RazerHeadset.jpg"
     },
     {
         productID: "48",
-        productName: "G633 Artemis Spectrum Gaming Headset",
+        productName: "G633 Gaming Headset",
         productBrand: "Logitech",
         productPrice: "149.99",
-        productCategory: "headphones",
+        productCategory: "Headphones",
         productImage: "./resources/ArtemisSpectrumHeadset.jpg"
     },
 ];

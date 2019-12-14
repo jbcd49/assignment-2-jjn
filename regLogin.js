@@ -149,21 +149,57 @@ function placeOrder()
             guestCart = [];
             saveGuestCart();
         }
-        
         alert("ORDER PLACED, THANK YOU!");
         window.location.href = "./index.html";
-    }
-    else
-    {
-        alert("ORDER FORM VALUES INVALID");
     }
 }
 
 function isValidInputs()
 {
-    //TODO - Validate the checkout form inputs
+    let validInputFlag = true;
+    let invalidAlertString = "";
+    
+    let month = parseInt(document.getElementById("checkoutCardMonth").value);
+    let year = parseInt(document.getElementById("checkoutCardYear").value);
+    let date = new Date();
+    if(month < 1 || month > 12)
+    {
+        validInputFlag = false;
+        invalidAlertString += "INVALID - CREDIT CARD EXP. MONTH\n\n";
+    }
+    
+    if(year < date.getFullYear())
+    {
+        validInputFlag = false;
+        invalidAlertString += "INVALID - CREDIT CARD EXP. YEAR\n\n";
+    }
+    else if(year == date.getFullYear() && validInputFlag)
+    {
+        if(month < (date.getMonth() + 1))
+        {
+            validInputFlag = false;
+            invalidAlertString += "EXPIRED - CREDIT CARD\n\n";
+        }
+    }
 
-    return true;
+    let stateList = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL",
+                     "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME",
+                     "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH",
+                     "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI",
+                     "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
+    let state = document.getElementById("checkoutState").value;
+    if(!stateList.includes(state.toUpperCase()))
+    {
+        validInputFlag = false;
+        invalidAlertString += "INVALID - STATE CODE";
+    }
+
+    if(!validInputFlag)
+    {
+        alert(invalidAlertString);
+    }
+
+    return validInputFlag;
 }
 
 function renderCart()
